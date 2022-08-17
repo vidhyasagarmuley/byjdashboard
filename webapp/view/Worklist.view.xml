@@ -28,7 +28,7 @@
 			</contentMiddle>
 			</Bar>
 		</m:subHeader>    -->
-	<uxap:ObjectPageLayout id="ObjectPageLayout"
+	<!-- <uxap:ObjectPageLayout id="ObjectPageLayout"
 		 showTitleInHeaderContent="false" 
               alwaysShowContentHeader="true" 
               headerContentPinnable="true" 
@@ -42,7 +42,7 @@
 				<uxap:snappedHeading>
 					<m:FlexBox fitContainer="true" alignItems="Center">
                         <m:Avatar src="{path: 'staticDataModel>/tempIcon',formatter: '.formatter.iconFilePath'}" class="sapUiTinyMarginEnd"/>
-        				<m:Title text="{appModel>/project}" wrapping="true" />
+        				<m:Title text="{i18n>detail.cashcollection.title}" wrapping="true" />
 					</m:FlexBox>
 				</uxap:snappedHeading>
 				<uxap:expandedContent>
@@ -68,7 +68,23 @@
 					<m:Label text="Product Group : {appModel>/id}"/>
 				</layout:VerticalLayout>
 			</m:FlexBox>
-		</uxap:headerContent>
+		</uxap:headerContent> -->
+		<uxap:ObjectPageLayout id="ObjectPageLayout" upperCaseAnchorBar="false">
+		<uxap:headerTitle>
+			<uxap:ObjectPageDynamicHeaderTitle>
+				<uxap:heading>
+					<m:Title text="{i18n>appDescription}" wrapping="true"/>
+				</uxap:heading>
+
+				<uxap:snappedTitleOnMobile>
+					<m:Title text="{i18n>appDescription}"/>
+				</uxap:snappedTitleOnMobile>
+			</uxap:ObjectPageDynamicHeaderTitle>
+		</uxap:headerTitle>
+
+	<uxap:headerContent>
+		<m:Title text="Finanace Dashboards which contains {i18n>detail.cashcollection.title}" titleStyle="H6"/>
+	</uxap:headerContent>
 		<uxap:sections>
 	<uxap:ObjectPageSection title = "{i18n>detail.cashcollection.title}"  showTitle = "false">
 		<uxap:subSections>
@@ -95,17 +111,8 @@
 	<uxap:ObjectPageSubSection  showTitle = "true" titleUppercase = "false" 
 								 title="Secure Operations">
 		<uxap:blocks>
-        <Panel expandable="true" expanded="true">
-		  <headerToolbar>
-			<Toolbar height="3rem">
-			<Title text="Secure Operations" level="H4" titleStyle="H4"/>
-			</Toolbar>
-		  </headerToolbar>
-		  <content>
-		<!-- <core:Fragment type="XML"
-			fragmentName="com.sap.byjus.byjusdashboard.view.fragment.SecurityPSRequirement" /> -->
-            </content>
-            </Panel>
+        <core:Fragment type="XML"
+			fragmentName="com.sap.byjus.byjusdashboard.view.fragments.payments" />
 		</uxap:blocks>
 	</uxap:ObjectPageSubSection>
 	</uxap:subSections>

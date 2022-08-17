@@ -62,7 +62,7 @@ sap.ui.define([
                         "Date": "01/02/2022"
                     },
                     {
-                        "Loan Partners" : 5894763.00,
+                        "Loan Partners" : 58463.00,
                         "Retail Direct to Bank" : 33939.00,
                         "PayU and Razorpay" : 48293.00,
                         "Exports" : 237323.00,
@@ -248,17 +248,19 @@ sap.ui.define([
                     formatString: formatPattern.SHORTFLOAT
                 },
                 title: {
-                    visible: false
+                    visible: true,
+                    text: 'Amount'
                 }
             },
             categoryAxis: {
                 title: {
-                    visible: false
+                    visible: true,
+                    text: 'Monthy'
                 }
             },
             title: {
-                visible: false,
-                text: 'Revenue by City and Store Name'
+                visible: true,
+                text: 'Cash collection from different sources'
             }
         });
         var dataModel = this.getView().getModel("detailJSONModel");

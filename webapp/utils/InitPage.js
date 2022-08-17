@@ -32,7 +32,7 @@ sap.ui.define([
                 });
                 oChartContainer.setShowFullScreen(true);
                 oChartContainer.setAutoAdjustHeight(true);
-                oChartContainer.setShowZoom(false);
+                oChartContainer.setShowZoom(true);
                 oView.byId(key + 'chartFixFlex').setFlexContent(oChartContainer);
             }
         }

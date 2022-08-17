@@ -12,11 +12,12 @@
 	<l:BlockLayoutRow accentCells="Accent1">
 		<l:BlockLayoutCell> -->
          <layout:FixFlex id='cashCollectionchartFixFlex' minFlexSize="250">
-          <layout:fixContent> </layout:fixContent>
+          <layout:fixContent> 
+          </layout:fixContent>
            <layout:flexContent>
             <viz:Popover id="cashCollectionPopOver"></viz:Popover>
             <viz:VizFrame id="cashCollection" uiConfig="{applicationSet:'fiori'}"
-             vizType='column'>
+             vizType='line'>
                 <viz:dataset>
                     <viz.data:FlattenedDataset data="{detailJSONModel>/cashCollection}">
                         <viz.data:dimensions>
