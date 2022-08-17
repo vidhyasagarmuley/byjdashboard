@@ -46,30 +46,29 @@ sap.ui.define([
             var detailJSONModel = new JSONModel( {
                 "cashCollection": [
                     {
-                        "name" : "Loan Partners",
-                        "amount" : 1232.00,
-                    },{
-                      "name" : "Retail Direct to Bank",
-                      "amount" : 35002.00,
-                  },{
-                      "name" : "Retail Direct to Bank",
-                      "amount" : 577.00,
-                  },{
-                    "name" : "PayU and Razorpay",
-                    "amount" : 93933.00,
-                },{
-                  "name" : "PayU and Razorpay",
-                  "amount" : 202020.00,
-                  },{
-                    "name" : "Exports",
-                      "amount" : 57564634.00,
-                  },{
-                    "name" : "Exports",
-                    "amount" : 3223.00,
-                    },{
-                      "name" : "NACH (EE Bytes)",
-                      "amount" : 35009.00,
-                      }
+                        "Loan Partners" : 23733.00,
+                        "Retail Direct to Bank" : 12322.00,
+                        "PayU and Razorpay" : 28674.00,
+                        "Exports" : 303023.00,
+                        "NACH (EE Bytes)" : 494493.00,
+                        "Date": "01/01/2022"
+                    },
+                    {
+                        "Loan Partners" : 23733.00,
+                        "Retail Direct to Bank" : 23733.00,
+                        "PayU and Razorpay" : 23733.00,
+                        "Exports" : 23733.00,
+                        "NACH (EE Bytes)" : 23733.00,
+                        "Date": "01/02/2022"
+                    },
+                    {
+                        "Loan Partners" : 5894763.00,
+                        "Retail Direct to Bank" : 33939.00,
+                        "PayU and Razorpay" : 48293.00,
+                        "Exports" : 237323.00,
+                        "NACH (EE Bytes)" : 36362.00,
+                        "Date": "01/03/2022"
+                    },
                 ]
             });
             this.getView().setModel(detailJSONModel,"detailJSONModel");

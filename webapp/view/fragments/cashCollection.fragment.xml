@@ -20,21 +20,41 @@
                 <viz:dataset>
                     <viz.data:FlattenedDataset data="{detailJSONModel>/cashCollection}">
                         <viz.data:dimensions>
-                            <viz.data:DimensionDefinition name="name"
-                                value="{detailJSONModel>name}" />
+                            <viz.data:DimensionDefinition name="Date"
+                                value="{detailJSONModel>Date}" />
                         </viz.data:dimensions>
-                        <viz.data:measures>
+                        <!-- <viz.data:measures>
                             <viz.data:MeasureDefinition name="amount"
                                 value="{detailJSONModel>amount}" />
+                        </viz.data:measures> -->
+                          <viz.data:measures>
+                            <viz.data:MeasureDefinition name="Loan Partners"
+                                value="{detailJSONModel>Loan Partners}" />
+                            <viz.data:MeasureDefinition name="Retail Direct to Bank"
+                                value="{detailJSONModel>Retail Direct to Bank}" />
+                            <viz.data:MeasureDefinition name="PayU and Razorpay"
+                                value="{detailJSONModel>PayU and Razorpay}" />
+                            <viz.data:MeasureDefinition name="Exports"
+                                value="{detailJSONModel>Exports}" />
+                            <viz.data:MeasureDefinition name="NACH (EE Bytes)"
+                                value="{detailJSONModel>NACH (EE Bytes)}" />
                         </viz.data:measures>
                     </viz.data:FlattenedDataset>
                 </viz:dataset>
 
                 <viz:feeds>
                     <viz.feeds:FeedItem uid="valueAxis" type="Measure"
-                        values="amount" />
+                        values="Loan Partners" />
+                          <viz.feeds:FeedItem uid="valueAxis" type="Measure"
+                        values="Retail Direct to Bank" />
+                          <viz.feeds:FeedItem uid="valueAxis" type="Measure"
+                        values="PayU and Razorpay" />
+                          <viz.feeds:FeedItem uid="valueAxis" type="Measure"
+                        values="Exports" />
+                          <viz.feeds:FeedItem uid="valueAxis" type="Measure"
+                        values="NACH (EE Bytes)" />
                     <viz.feeds:FeedItem uid="categoryAxis" type="Dimension"
-                        values="name" />
+                        values="Date" />
                 </viz:feeds>
             </viz:VizFrame>
             </layout:flexContent>
