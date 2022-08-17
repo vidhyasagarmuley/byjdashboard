@@ -1,0 +1,123 @@
+<mvc:View
+           controllerName="com.sap.byjus.byjusdashboard.controller.Worklist"
+           xmlns:mvc="sap.ui.core.mvc"
+		   xmlns="sap.m"
+		   xmlns:html="http://www.w3.org/1999/xhtml"
+		   xmlns:uxap="sap.uxap"
+		   xmlns:core="sap.ui.core"
+		   xmlns:layout="sap.ui.layout"
+		   xmlns:m="sap.m"
+		   xmlns:card="sap.f.cards"
+		   height="100%"
+			xmlns:f="sap.ui.layout.form"
+			xmlns:l="sap.ui.layout">
+
+     <m:Page showHeader="false">   
+    	<!-- <m:subHeader>
+			<Bar>
+			<contentLeft>
+			  <m:Link text="Projects" emphasized="true" press="goSearchScreen"/>
+                <m:Text text=">" width="2px" class="sapUiTinyMarginEnd"/>
+                <m:Link text="High Level Summary" emphasized="true" enabled="true"
+				 press = "onPressHighLevelSummary"/>
+				<m:Text text=">" width="2px" class="sapUiTinyMarginEnd"/>
+				<m:Link text="Security Top X" emphasized="true" enabled="false"/>
+			</contentLeft>
+			<contentMiddle>
+			<Text text = "Security Top X"/>
+			</contentMiddle>
+			</Bar>
+		</m:subHeader>    -->
+	<uxap:ObjectPageLayout id="ObjectPageLayout"
+		 showTitleInHeaderContent="false" 
+              alwaysShowContentHeader="true" 
+              headerContentPinnable="true" 
+              enableLazyLoading="false" 
+              showFooter="true">
+		<uxap:headerTitle>
+			<uxap:ObjectPageDynamicHeaderTitle>
+				<uxap:expandedHeading>
+					<m:Title text="{appModel>/project}" wrapping="true"/>
+				</uxap:expandedHeading>
+				<uxap:snappedHeading>
+					<m:FlexBox fitContainer="true" alignItems="Center">
+                        <m:Avatar src="{path: 'staticDataModel>/tempIcon',formatter: '.formatter.iconFilePath'}" class="sapUiTinyMarginEnd"/>
+        				<m:Title text="{appModel>/project}" wrapping="true" />
+					</m:FlexBox>
+				</uxap:snappedHeading>
+				<uxap:expandedContent>
+				</uxap:expandedContent>
+				<uxap:actions>
+				</uxap:actions>
+			</uxap:ObjectPageDynamicHeaderTitle>
+		</uxap:headerTitle>
+		<uxap:headerContent>
+			<m:FlexBox wrap="Wrap" fitContainer="true" >
+				<layout:VerticalLayout class="sapUiMediumMarginBeginEnd">
+					<m:Label text="Project Manager" design="Bold" />
+					<m:Text text="{projectManager}"/>
+					<m:Text text="{pmId}"/>
+				</layout:VerticalLayout>
+
+				<layout:VerticalLayout class="sapUiMediumMarginBeginEnd">
+					<m:Label text="Quality Program Accountable" design="Bold" />
+					<m:Text text="{qualityManager}"/>
+					<m:Text text="{qmId}"/>
+				</layout:VerticalLayout>
+				<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+					<m:Label text="Product Group : {appModel>/id}"/>
+				</layout:VerticalLayout>
+			</m:FlexBox>
+		</uxap:headerContent>
+		<uxap:sections>
+	<uxap:ObjectPageSection title = "{i18n>detail.cashcollection.title}"  showTitle = "false">
+		<uxap:subSections>
+	<uxap:ObjectPageSubSection showTitle = "true" title = "{i18n>detail.cashcollection.title}">
+		<uxap:blocks>
+         <!-- <Panel expandable="true" expanded="true">
+		  <headerToolbar>
+			<Toolbar height="3rem">
+			<Title text="{i18n>detail.cashcollection.title}" level="H4" titleStyle="H4"/>
+			</Toolbar>
+		  </headerToolbar>
+		  <content> -->
+		 <core:Fragment type="XML"
+			fragmentName="com.sap.byjus.byjusdashboard.view.fragments.cashCollection" />
+        <!-- </content>
+        </Panel> -->
+		</uxap:blocks>
+	</uxap:ObjectPageSubSection>
+	</uxap:subSections>
+	</uxap:ObjectPageSection>
+	<uxap:ObjectPageSection showTitle = "false" titleUppercase = "false" 
+								 title="Secure Operations">
+		<uxap:subSections>
+	<uxap:ObjectPageSubSection  showTitle = "true" titleUppercase = "false" 
+								 title="Secure Operations">
+		<uxap:blocks>
+        <Panel expandable="true" expanded="true">
+		  <headerToolbar>
+			<Toolbar height="3rem">
+			<Title text="Secure Operations" level="H4" titleStyle="H4"/>
+			</Toolbar>
+		  </headerToolbar>
+		  <content>
+		<!-- <core:Fragment type="XML"
+			fragmentName="com.sap.byjus.byjusdashboard.view.fragment.SecurityPSRequirement" /> -->
+            </content>
+            </Panel>
+		</uxap:blocks>
+	</uxap:ObjectPageSubSection>
+	</uxap:subSections>
+	</uxap:ObjectPageSection>
+	</uxap:sections>
+	</uxap:ObjectPageLayout>
+		<m:footer>
+			<m:Toolbar>
+				<m:ToolbarSpacer/>
+				<m:Button icon="sap-icon://action" type="Transparent" press="onPress" />
+			</m:Toolbar>
+		</m:footer>
+    </m:Page> 
+
+</mvc:View>

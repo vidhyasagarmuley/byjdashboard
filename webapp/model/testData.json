@@ -1,0 +1,43 @@
+{
+    "d": {
+          "cashCollection": [
+              {
+                  "name" : "Loan Partners",
+                  "amount" : 35001,
+                  "type" : "D"
+              },{
+                "name" : "Retail Direct to Bank",
+                "amount" : 35002,
+                "type" : "M"
+            },{
+                "name" : "Retail Direct to Bank",
+                "amount" : 35003,
+                "type" : "D"
+            },{
+              "name" : "PayU and Razorpay",
+              "amount" : 35004,
+              "type" : "M"
+          },{
+            "name" : "PayU and Razorpay",
+            "amount" : 35005,
+            "type" : "M"
+            },{
+              "name" : "Exports",
+                "amount" : 35006,
+                "type" : "M"
+            },{
+              "name" : "Exports",
+              "amount" : 35007,
+              "type" : "M"
+              },{
+                "name" : "NACH (EE Bytes)",
+                  "amount" : 35008,
+                  "type" : "M"
+              },{
+                "name" : "NACH (EE Bytes)",
+                "amount" : 35009,
+                "type" : "M"
+                }
+          ]
+      }
+}
