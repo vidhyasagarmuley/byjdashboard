@@ -4,12 +4,12 @@ sap.ui.define([
     "../model/formatter",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
-     '../utils/InitPage',
-     'sap/viz/ui5/data/FlattenedDataset',
-     'sap/viz/ui5/format/ChartFormatter',
-     'sap/viz/ui5/api/env/Format',
-     "sap/ui/model/Sorter",
-     "sap/m/MessageBox",
+    '../utils/InitPage',
+    'sap/viz/ui5/data/FlattenedDataset',
+    'sap/viz/ui5/format/ChartFormatter',
+    'sap/viz/ui5/api/env/Format',
+    "sap/ui/model/Sorter",
+    "sap/m/MessageBox",
 ], function (BaseController, JSONModel, formatter, Filter, FilterOperator, InitPage, FlattenedDataset,
     ChartFormatter, Format, Sorter, MessageBox) {
     "use strict";
@@ -26,7 +26,7 @@ sap.ui.define([
          * Called when the worklist controller is instantiated.
          * @public
          */
-        onInit : function () {
+        onInit: function () {
             var oViewModel;
 
             // keeps the search state
@@ -34,44 +34,168 @@ sap.ui.define([
 
             // Model used to manipulate control states
             oViewModel = new JSONModel({
-                worklistTableTitle : this.getResourceBundle().getText("worklistTableTitle"),
+                worklistTableTitle: this.getResourceBundle().getText("worklistTableTitle"),
                 shareSendEmailSubject: this.getResourceBundle().getText("shareSendEmailWorklistSubject"),
                 shareSendEmailMessage: this.getResourceBundle().getText("shareSendEmailWorklistMessage", [location.href]),
-                tableNoDataText : this.getResourceBundle().getText("tableNoDataText")
+                tableNoDataText: this.getResourceBundle().getText("tableNoDataText")
             });
             this.setModel(oViewModel, "worklistView");
             var sJsonPath = jQuery.sap.getModulePath("com.sap.byjus.byjusdashboard", "/model/testData.json");
             var oStaticDataModel = new JSONModel(sJsonPath);
             this.getView().setModel(oStaticDataModel, "staticDataModel");
-            var detailJSONModel = new JSONModel( {
-                "cashCollection": [
-                    {
-                        "Loan Partners" : 23733.00,
-                        "Retail Direct to Bank" : 12322.00,
-                        "PayU and Razorpay" : 28674.00,
-                        "Exports" : 303023.00,
-                        "NACH (EE Bytes)" : 494493.00,
+            var detailJSONModel = new JSONModel({
+                "cashCollection": [{
+                        "Loan Partners": 23733.00,
+                        "Retail Direct to Bank": 12322.00,
+                        "PayU and Razorpay": 28674.00,
+                        "Exports": 303023.00,
+                        "NACH (EE Bytes)": 494493.00,
                         "Date": "01/01/2022"
                     },
                     {
-                        "Loan Partners" : 23733.00,
-                        "Retail Direct to Bank" : 23733.00,
-                        "PayU and Razorpay" : 23733.00,
-                        "Exports" : 23733.00,
-                        "NACH (EE Bytes)" : 23733.00,
+                        "Loan Partners": 23733.00,
+                        "Retail Direct to Bank": 23733.00,
+                        "PayU and Razorpay": 23733.00,
+                        "Exports": 23733.00,
+                        "NACH (EE Bytes)": 23733.00,
                         "Date": "01/02/2022"
                     },
                     {
-                        "Loan Partners" : 58463.00,
-                        "Retail Direct to Bank" : 33939.00,
-                        "PayU and Razorpay" : 48293.00,
-                        "Exports" : 237323.00,
-                        "NACH (EE Bytes)" : 36362.00,
+                        "Loan Partners": 58463.00,
+                        "Retail Direct to Bank": 33939.00,
+                        "PayU and Razorpay": 48293.00,
+                        "Exports": 237323.00,
+                        "NACH (EE Bytes)": 36362.00,
+                        "Date": "01/03/2022"
+                    },
+                ],
+                "loanPartners": [{
+                        "Loan Partners": 23733.00,
+                        // "Retail Direct to Bank": 12322.00,
+                        // "PayU and Razorpay": 28674.00,
+                        // "Exports": 303023.00,
+                        // "NACH (EE Bytes)": 494493.00,
+                        "Date": "01/01/2022"
+                    },
+                    {
+                        "Loan Partners": 23733.00,
+                        // "Retail Direct to Bank": 23733.00,
+                        // "PayU and Razorpay": 23733.00,
+                        // "Exports": 23733.00,
+                        // "NACH (EE Bytes)": 23733.00,
+                        "Date": "01/02/2022"
+                    },
+                    {
+                        "Loan Partners": 58463.00,
+                        // "Retail Direct to Bank": 33939.00,
+                        // "PayU and Razorpay": 48293.00,
+                        // "Exports": 237323.00,
+                        // "NACH (EE Bytes)": 36362.00,
+                        "Date": "01/03/2022"
+                    },
+                ],
+                "retailDirectToBank": [{
+                        // "Loan Partners": 23733.00,
+                        "Retail Direct to Bank": 12322.00,
+                        // "PayU and Razorpay": 28674.00,
+                        // "Exports": 303023.00,
+                        // "NACH (EE Bytes)": 494493.00,
+                        "Date": "01/01/2022"
+                    },
+                    {
+                        // "Loan Partners": 23733.00,
+                        "Retail Direct to Bank": 23733.00,
+                        // "PayU and Razorpay": 23733.00,
+                        // "Exports": 23733.00,
+                        // "NACH (EE Bytes)": 23733.00,
+                        "Date": "01/02/2022"
+                    },
+                    {
+                        // "Loan Partners": 58463.00,
+                        "Retail Direct to Bank": 33939.00,
+                        // "PayU and Razorpay": 48293.00,
+                        // "Exports": 237323.00,
+                        // "NACH (EE Bytes)": 36362.00,
+                        "Date": "01/03/2022"
+                    },
+                ],
+                "payuAndRozaPay": [{
+                        // "Loan Partners": 23733.00,
+                        // "Retail Direct to Bank": 12322.00,
+                        "PayU and Razorpay": 28674.00,
+                        // "Exports": 303023.00,
+                        // "NACH (EE Bytes)": 494493.00,
+                        "Date": "01/01/2022"
+                    },
+                    {
+                        // "Loan Partners": 23733.00,
+                        // "Retail Direct to Bank": 23733.00,
+                        "PayU and Razorpay": 23733.00,
+                        // "Exports": 23733.00,
+                        // "NACH (EE Bytes)": 23733.00,
+                        "Date": "01/02/2022"
+                    },
+                    {
+                        // "Loan Partners": 58463.00,
+                        // "Retail Direct to Bank": 33939.00,
+                        "PayU and Razorpay": 48293.00,
+                        // "Exports": 237323.00,
+                        // "NACH (EE Bytes)": 36362.00,
+                        "Date": "01/03/2022"
+                    },
+                ],
+                "export": [{
+                        // "Loan Partners": 23733.00,
+                        // "Retail Direct to Bank": 12322.00,
+                        // "PayU and Razorpay": 28674.00,
+                        "Exports": 303023.00,
+                        // "NACH (EE Bytes)": 494493.00,
+                        "Date": "01/01/2022"
+                    },
+                    {
+                        // "Loan Partners": 23733.00,
+                        // "Retail Direct to Bank": 23733.00,
+                        // "PayU and Razorpay": 23733.00,
+                        "Exports": 23733.00,
+                        // "NACH (EE Bytes)": 23733.00,
+                        "Date": "01/02/2022"
+                    },
+                    {
+                        // "Loan Partners": 58463.00,
+                        // "Retail Direct to Bank": 33939.00,
+                        // "PayU and Razorpay": 48293.00,
+                        "Exports": 237323.00,
+                        // "NACH (EE Bytes)": 36362.00,
+                        "Date": "01/03/2022"
+                    },
+                ],
+                "nachEEBytes": [{
+                        // "Loan Partners": 23733.00,
+                        // "Retail Direct to Bank": 12322.00,
+                        // "PayU and Razorpay": 28674.00,
+                        // "Exports": 303023.00,
+                        "NACH (EE Bytes)": 44493.00,
+                        "Date": "01/01/2022"
+                    },
+                    {
+                        // "Loan Partners": 23733.00,
+                        // "Retail Direct to Bank": 23733.00,
+                        // "PayU and Razorpay": 23733.00,
+                        // "Exports": 23733.00,
+                        "NACH (EE Bytes)": 23933.00,
+                        "Date": "01/02/2022"
+                    },
+                    {
+                        // "Loan Partners": 58463.00,
+                        // "Retail Direct to Bank": 33939.00,
+                        // "PayU and Razorpay": 48293.00,
+                        // "Exports": 237323.00,
+                        "NACH (EE Bytes)": 36362.00,
                         "Date": "01/03/2022"
                     },
                 ]
             });
-            this.getView().setModel(detailJSONModel,"detailJSONModel");
+            this.getView().setModel(detailJSONModel, "detailJSONModel");
             this._handleSetVizFrameData(detailJSONModel.getProperty("/"));
 
         },
@@ -89,7 +213,7 @@ sap.ui.define([
          * @param {sap.ui.base.Event} oEvent the update finished event
          * @public
          */
-        onUpdateFinished : function (oEvent) {
+        onUpdateFinished: function (oEvent) {
             // update the worklist's object counter after the table update
             var sTitle,
                 oTable = oEvent.getSource(),
@@ -109,7 +233,7 @@ sap.ui.define([
          * @param {sap.ui.base.Event} oEvent the table selectionChange event
          * @public
          */
-        onPress : function (oEvent) {
+        onPress: function (oEvent) {
             // The source is the list item that got pressed
             this._showObject(oEvent.getSource());
         },
@@ -119,13 +243,13 @@ sap.ui.define([
          * Navigate back in the browser history
          * @public
          */
-        onNavBack : function() {
+        onNavBack: function () {
             // eslint-disable-next-line sap-no-history-manipulation
             history.go(-1);
         },
 
 
-        onSearch : function (oEvent) {
+        onSearch: function (oEvent) {
             if (oEvent.getParameters().refreshButtonPressed) {
                 // Search field's 'refresh' button has been pressed.
                 // This is visible if you select any main list item.
@@ -149,7 +273,7 @@ sap.ui.define([
          * and group settings and refreshes the list binding.
          * @public
          */
-        onRefresh : function () {
+        onRefresh: function () {
             var oTable = this.byId("table");
             oTable.getBinding("items").refresh();
         },
@@ -163,7 +287,7 @@ sap.ui.define([
          * @param {sap.m.ObjectListItem} oItem selected Item
          * @private
          */
-        _showObject : function (oItem) {
+        _showObject: function (oItem) {
             this.getRouter().navTo("object", {
                 objectId: oItem.getBindingContext().getPath().substring("/Categories".length)
             });
@@ -174,7 +298,7 @@ sap.ui.define([
          * @param {sap.ui.model.Filter[]} aTableSearchState An array of filters for the search
          * @private
          */
-        _applySearch: function(aTableSearchState) {
+        _applySearch: function (aTableSearchState) {
             var oTable = this.byId("table"),
                 oViewModel = this.getModel("worklistView");
             oTable.getBinding("items").filter(aTableSearchState, "Application");
@@ -187,109 +311,129 @@ sap.ui.define([
             var sProperties = this.getView().getModel("detailJSONModel").getProperty("/");
             var keys = Object.keys(sProperties);
             keys.forEach((key) => {
-            //    this._handlePrepareData(key ,data);
-               this._handleVizFrames(key);
+                //    this._handlePrepareData(key ,data);
+                this._handleVizFrames(key);
             });
         },
-        _handlePrepareData :  function (key, data) {
+        _handlePrepareData: function (key, data) {
             var keyArray = [];
-            for (var i=0; i<data[key].length; i++) {
-                var sObjecct = {}, newObj = data[key][i];
+            for (var i = 0; i < data[key].length; i++) {
+                var sObjecct = {},
+                    newObj = data[key][i];
                 sObjecct[key] = newObj[key];
                 keyArray.push(sObjecct);
             }
             var counts = {};
-            keyArray.forEach(function(x) {
-               var sProperty =  x[key];
+            keyArray.forEach(function (x) {
+                var sProperty = x[key];
                 counts[sProperty] = (counts[sProperty] || 0) + 1;
             });
             console.log(counts);
             var finKeys = Object.keys(counts);
-            var  finArray = this.getView().getModel("detailJSONModel").getProperty("/"+ key +"");
-                finKeys.forEach((key) => {
-                   var finData = {};
-                   finData.status = key;
-                   finData.count = counts[key];
-                   finArray.push(finData);
-                });
-                this.getView().getModel("detailJSONModel").setProperty("/"+ key +"", finArray);
+            var finArray = this.getView().getModel("detailJSONModel").getProperty("/" + key + "");
+            finKeys.forEach((key) => {
+                var finData = {};
+                finData.status = key;
+                finData.count = counts[key];
+                finArray.push(finData);
+            });
+            this.getView().getModel("detailJSONModel").setProperty("/" + key + "", finArray);
         },
-    _handleVizFrames :  function (key) {
-        var oVizFrame =  this.getView().byId(key);
-        if (!oVizFrame) {
-            return;
-        }
-        // oVizFrame.setVizProperties({
-        //     plotArea: {
-        //         // colorPalette: d3.scale.category20().range(),
-        //         dataLabel: {
-        //             showTotal: true
-        //         }
-        //     },
-        //     tooltip: {
-        //         visible: true
-        //     },
-        //     title: {
-        //         text: "Pie Chart"
-        //     }
-        // });
-        Format.numericFormatter(ChartFormatter.getInstance());
-        var formatPattern = ChartFormatter.DefaultPattern;
-
-        oVizFrame.setVizProperties({
-            plotArea: {
-                dataLabel: {
-                    formatString: formatPattern.SHORTFLOAT_MFD2,
-                    visible: true
-                }
-            },
-            valueAxis: {
-                label: {
-                    formatString: formatPattern.SHORTFLOAT
+        _handleVizFrames: function (key) {
+            var oVizFrame = this.getView().byId(key);
+            if (!oVizFrame) {
+                return;
+            }
+            // oVizFrame.setVizProperties({
+            //     plotArea: {
+            //         // colorPalette: d3.scale.category20().range(),
+            //         dataLabel: {
+            //             showTotal: true
+            //         }
+            //     },
+            //     tooltip: {
+            //         visible: true
+            //     },
+            //     title: {
+            //         text: "Pie Chart"
+            //     }
+            // });
+            Format.numericFormatter(ChartFormatter.getInstance());
+            var formatPattern = ChartFormatter.DefaultPattern;
+            let description = this.getDashboardDescription(oVizFrame);
+            oVizFrame.setVizProperties({
+                plotArea: {
+                    dataLabel: {
+                        formatString: formatPattern.SHORTFLOAT_MFD2,
+                        visible: true
+                    }
+                },
+                valueAxis: {
+                    label: {
+                        formatString: formatPattern.SHORTFLOAT
+                    },
+                    title: {
+                        visible: true,
+                        text: 'Amount'
+                    }
+                },
+                categoryAxis: {
+                    title: {
+                        visible: true,
+                        text: 'Monthy'
+                    }
                 },
                 title: {
                     visible: true,
-                    text: 'Amount'
+                    text: description
                 }
-            },
-            categoryAxis: {
-                title: {
-                    visible: true,
-                    text: 'Monthy'
-                }
-            },
-            title: {
-                visible: true,
-                text: 'Cash collection from different sources'
-            }
-        });
-        var dataModel = this.getView().getModel("detailJSONModel");
-        oVizFrame.setModel(dataModel);
-        var oPopOver = this.getView().byId(key + "PopOver");
-        oPopOver.connect(oVizFrame.getVizUid());
-        oPopOver.setFormatString(ChartFormatter.DefaultPattern.STANDARDFLOAT);
-        InitPage.initPageSettings(this.getView(), key);
-        // var that = this;
-        dataModel.attachRequestCompleted(function() {
-            this.dataSort(dataModel.getProperty("/"), key);
-        }.bind(this));
-        oVizFrame.setVizProperties({
-            plotArea: {
-                dataLabel: {
-                    visible: true
-                }
-            }
-        });
-    },
-    dataSort: function(dataset, key) {
-        //let data sorted by revenue
-        if (dataset && dataset.hasOwnProperty(key)) {
-            var arr = dataset.milk;
-            arr = arr.sort(function (a, b) {
-                return b.count - a.count;
             });
+            var dataModel = this.getView().getModel("detailJSONModel");
+            oVizFrame.setModel(dataModel);
+            var oPopOver = this.getView().byId(key + "PopOver");
+            oPopOver.connect(oVizFrame.getVizUid());
+            oPopOver.setFormatString(ChartFormatter.DefaultPattern.STANDARDFLOAT);
+            InitPage.initPageSettings(this.getView(), key);
+            // var that = this;
+            dataModel.attachRequestCompleted(function () {
+                this.dataSort(dataModel.getProperty("/"), key);
+            }.bind(this));
+            oVizFrame.setVizProperties({
+                plotArea: {
+                    dataLabel: {
+                        visible: true
+                    }
+                }
+            });
+        },
+        dataSort: function (dataset, key) {
+            //let data sorted by revenue
+            if (dataset && dataset.hasOwnProperty(key)) {
+                var arr = dataset.milk;
+                arr = arr.sort(function (a, b) {
+                    return b.count - a.count;
+                });
+            }
+        },
+        getDashboardDescription: function (oControll) {
+            let description = '';
+            if (oControll.getId().indexOf("cashCollection") >= 0) {
+                description = "Cash collection from different sources";
+            } else if (oControll.getId().indexOf("loanPartners") >= 0) {
+                description = "Loan Partners";
+            } else if (oControll.getId().indexOf("retailDirectToBank") >= 0) {
+                description = "Retail Direct To Bank";
+            } else if (oControll.getId().indexOf("loanPartners") >= 0) {
+                description = "Loan Partners";
+            } else if (oControll.getId().indexOf("payuAndRozaPay") >= 0) {
+                description = "PayU and Razorpay";
+            } else if (oControll.getId().indexOf("export") >= 0) {
+                description = "Exports";
+            } else if (oControll.getId().indexOf("nachEEBytes") >= 0) {
+                description = "NACH (EE Bytes)";
+            }
+            return description;
         }
-    },
 
     });
 });

@@ -82,14 +82,14 @@
 			</uxap:ObjectPageDynamicHeaderTitle>
 		</uxap:headerTitle>
 
-	<uxap:headerContent>
+	<!-- <uxap:headerContent>
 		<m:Title text="Finanace Dashboards which contains {i18n>detail.cashcollection.title}" titleStyle="H6"/>
-	</uxap:headerContent>
+	</uxap:headerContent> -->
 		<uxap:sections>
-	<uxap:ObjectPageSection title = "{i18n>detail.cashcollection.title}"  showTitle = "false">
+	<!-- <uxap:ObjectPageSection title = "{i18n>detail.cashcollection.title}"  showTitle = "false">
 		<uxap:subSections>
 	<uxap:ObjectPageSubSection showTitle = "true" title = "{i18n>detail.cashcollection.title}">
-		<uxap:blocks>
+		<uxap:blocks> -->
          <!-- <Panel expandable="true" expanded="true">
 		  <headerToolbar>
 			<Toolbar height="3rem">
@@ -97,26 +97,90 @@
 			</Toolbar>
 		  </headerToolbar>
 		  <content> -->
-		 <core:Fragment type="XML"
-			fragmentName="com.sap.byjus.byjusdashboard.view.fragments.cashCollection" />
+		 <!-- <core:Fragment type="XML"
+			fragmentName="com.sap.byjus.byjusdashboard.view.fragments.cashCollection" /> -->
         <!-- </content>
         </Panel> -->
+		<!-- </uxap:blocks>
+	</uxap:ObjectPageSubSection>
+	</uxap:subSections>
+	</uxap:ObjectPageSection> -->
+	<uxap:ObjectPageSection showTitle = "false" titleUppercase = "false" 
+								 title="Loan Partners">
+		<uxap:subSections>
+	<uxap:ObjectPageSubSection  showTitle = "true" titleUppercase = "false" 
+								 title="Loan Partners">
+		<uxap:blocks>
+        <core:Fragment type="XML"
+			fragmentName="com.sap.byjus.byjusdashboard.view.fragments.loanPartners" />
 		</uxap:blocks>
 	</uxap:ObjectPageSubSection>
 	</uxap:subSections>
 	</uxap:ObjectPageSection>
 	<uxap:ObjectPageSection showTitle = "false" titleUppercase = "false" 
-								 title="Secure Operations">
+								 title="Retail Direct to Bank">
 		<uxap:subSections>
 	<uxap:ObjectPageSubSection  showTitle = "true" titleUppercase = "false" 
-								 title="Secure Operations">
+								 title="Retail Direct to Bank">
 		<uxap:blocks>
         <core:Fragment type="XML"
-			fragmentName="com.sap.byjus.byjusdashboard.view.fragments.payments" />
+			fragmentName="com.sap.byjus.byjusdashboard.view.fragments.retailDirectToBank" />
 		</uxap:blocks>
 	</uxap:ObjectPageSubSection>
 	</uxap:subSections>
 	</uxap:ObjectPageSection>
+		<uxap:ObjectPageSection showTitle = "false" titleUppercase = "false" 
+								 title="PayU and Razorpay">
+		<uxap:subSections>
+	<uxap:ObjectPageSubSection  showTitle = "true" titleUppercase = "false" 
+								 title="PayU and Razorpay">
+		<uxap:blocks>
+        <core:Fragment type="XML"
+			fragmentName="com.sap.byjus.byjusdashboard.view.fragments.payuAndRozaPay" />
+		</uxap:blocks>
+	</uxap:ObjectPageSubSection>
+	</uxap:subSections>
+	</uxap:ObjectPageSection>
+
+	<uxap:ObjectPageSection showTitle = "false" titleUppercase = "false" 
+								 title="Exports">
+		<uxap:subSections>
+	<uxap:ObjectPageSubSection  showTitle = "true" titleUppercase = "false" 
+								 title="Exports">
+		<uxap:blocks>
+        <core:Fragment type="XML"
+			fragmentName="com.sap.byjus.byjusdashboard.view.fragments.export" />
+		</uxap:blocks>
+	</uxap:ObjectPageSubSection>
+	</uxap:subSections>
+	</uxap:ObjectPageSection>
+
+		<uxap:ObjectPageSection showTitle = "false" titleUppercase = "false" 
+								 title="NACH (EE Bytes)">
+		<uxap:subSections>
+	<uxap:ObjectPageSubSection  showTitle = "true" titleUppercase = "false" 
+								 title="NACH (EE Bytes)">
+		<uxap:blocks>
+        <core:Fragment type="XML"
+			fragmentName="com.sap.byjus.byjusdashboard.view.fragments.nachEEBytes" />
+		</uxap:blocks>
+	</uxap:ObjectPageSubSection>
+	</uxap:subSections>
+	</uxap:ObjectPageSection>
+
+	<uxap:ObjectPageSection>
+		<uxap:subSections>
+	<uxap:ObjectPageSubSection showTitle = "true" title = "{i18n>detail.cashcollection.title}">
+		<uxap:blocks>
+    
+		 <core:Fragment type="XML"
+			fragmentName="com.sap.byjus.byjusdashboard.view.fragments.cashCollection" />
+       
+	</uxap:blocks>
+	</uxap:ObjectPageSubSection>
+	</uxap:subSections>
+	</uxap:ObjectPageSection>
+	
 	</uxap:sections>
 	</uxap:ObjectPageLayout>
 		<m:footer>

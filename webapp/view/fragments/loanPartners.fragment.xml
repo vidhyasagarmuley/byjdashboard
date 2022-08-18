@@ -1,0 +1,66 @@
+<core:FragmentDefinition
+ xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data" 
+    xmlns:viz="sap.viz.ui5.controls" 
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:card="sap.f.cards"
+    xmlns:f="sap.f"
+    xmlns:l="sap.ui.layout"
+    xmlns:layout="sap.ui.layout">
+    <!-- <l:BlockLayout background="Dashboard">
+	<l:BlockLayoutRow accentCells="Accent1">
+		<l:BlockLayoutCell> -->
+         <layout:FixFlex id='loanPartnerschartFixFlex' minFlexSize="250">
+          <layout:fixContent> 
+          </layout:fixContent>
+           <layout:flexContent>
+            <viz:Popover id="loanPartnersPopOver"></viz:Popover>
+            <viz:VizFrame id="loanPartners" uiConfig="{applicationSet:'fiori'}"
+             vizType='vertical_bullet'>
+                <viz:dataset>
+                    <viz.data:FlattenedDataset data="{detailJSONModel>/loanPartners}">
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition name="Date"
+                                value="{detailJSONModel>Date}" />
+                        </viz.data:dimensions>
+                        <!-- <viz.data:measures>
+                            <viz.data:MeasureDefinition name="amount"
+                                value="{detailJSONModel>amount}" />
+                        </viz.data:measures> -->
+                          <viz.data:measures>
+                            <viz.data:MeasureDefinition name="Loan Partners"
+                                value="{detailJSONModel>Loan Partners}" />
+                            <!-- <viz.data:MeasureDefinition name="Retail Direct to Bank"
+                                value="{detailJSONModel>Retail Direct to Bank}" />
+                            <viz.data:MeasureDefinition name="PayU and Razorpay"
+                                value="{detailJSONModel>PayU and Razorpay}" />
+                            <viz.data:MeasureDefinition name="Exports"
+                                value="{detailJSONModel>Exports}" />
+                            <viz.data:MeasureDefinition name="NACH (EE Bytes)"
+                                value="{detailJSONModel>NACH (EE Bytes)}" /> -->
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+
+                <viz:feeds>
+                       <viz.feeds:FeedItem uid="valueAxis" type="Measure"
+                        values="Loan Partners" />
+                          <!-- <viz.feeds:FeedItem uid="valueAxis" type="Measure"
+                        values="Retail Direct to Bank" />
+                          <viz.feeds:FeedItem uid="valueAxis" type="Measure"
+                        values="PayU and Razorpay" />
+                          <viz.feeds:FeedItem uid="valueAxis" type="Measure"
+                        values="Exports" />
+                          <viz.feeds:FeedItem uid="valueAxis" type="Measure"
+                        values="NACH (EE Bytes)" /> -->
+                    <viz.feeds:FeedItem uid="categoryAxis" type="Dimension"
+                        values="Date" />
+                </viz:feeds>
+            </viz:VizFrame>
+            </layout:flexContent>
+        </layout:FixFlex>
+     <!-- </l:BlockLayoutCell>
+			</l:BlockLayoutRow>
+		</l:BlockLayout> -->
+</core:FragmentDefinition>

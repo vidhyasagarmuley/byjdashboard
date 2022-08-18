@@ -11,15 +11,15 @@
     <!-- <l:BlockLayout background="Dashboard">
 	<l:BlockLayoutRow accentCells="Accent1">
 		<l:BlockLayoutCell> -->
-         <layout:FixFlex id='paymentschartFixFlex' minFlexSize="250">
+         <layout:FixFlex id='payuAndRozaPaychartFixFlex' minFlexSize="250">
           <layout:fixContent> 
           </layout:fixContent>
            <layout:flexContent>
-            <viz:Popover id="paymentsPopOver"></viz:Popover>
-            <viz:VizFrame id="payments" uiConfig="{applicationSet:'fiori'}"
+            <viz:Popover id="payuAndRozaPayPopOver"></viz:Popover>
+            <viz:VizFrame id="payuAndRozaPay" uiConfig="{applicationSet:'fiori'}"
              vizType='column'>
                 <viz:dataset>
-                    <viz.data:FlattenedDataset data="{detailJSONModel>/payments}">
+                    <viz.data:FlattenedDataset data="{detailJSONModel>/payuAndRozaPay}">
                         <viz.data:dimensions>
                             <viz.data:DimensionDefinition name="Date"
                                 value="{detailJSONModel>Date}" />
@@ -29,31 +29,31 @@
                                 value="{detailJSONModel>amount}" />
                         </viz.data:measures> -->
                           <viz.data:measures>
-                            <viz.data:MeasureDefinition name="Loan Partners"
-                                value="{detailJSONModel>Loan Partners}" />
-                            <viz.data:MeasureDefinition name="Retail Direct to Bank"
+                            <!-- <viz.data:MeasureDefinition name="Retail Direct to Bank"
                                 value="{detailJSONModel>Retail Direct to Bank}" />
+                            <viz.data:MeasureDefinition name="Retail Direct to Bank"
+                                value="{detailJSONModel>Retail Direct to Bank}" /> -->
                             <viz.data:MeasureDefinition name="PayU and Razorpay"
                                 value="{detailJSONModel>PayU and Razorpay}" />
-                            <viz.data:MeasureDefinition name="Exports"
+                            <!-- <viz.data:MeasureDefinition name="Exports"
                                 value="{detailJSONModel>Exports}" />
                             <viz.data:MeasureDefinition name="NACH (EE Bytes)"
-                                value="{detailJSONModel>NACH (EE Bytes)}" />
+                                value="{detailJSONModel>NACH (EE Bytes)}" /> -->
                         </viz.data:measures>
                     </viz.data:FlattenedDataset>
                 </viz:dataset>
 
                 <viz:feeds>
-                    <viz.feeds:FeedItem uid="valueAxis" type="Measure"
-                        values="Loan Partners" />
-                          <viz.feeds:FeedItem uid="valueAxis" type="Measure"
-                        values="Retail Direct to Bank" />
+                       <!-- <viz.feeds:FeedItem uid="valueAxis" type="Measure"
+                        values="Retail Direct to Bank" /> -->
+                          <!-- <viz.feeds:FeedItem uid="valueAxis" type="Measure"
+                        values="Retail Direct to Bank" /> -->
                           <viz.feeds:FeedItem uid="valueAxis" type="Measure"
                         values="PayU and Razorpay" />
-                          <viz.feeds:FeedItem uid="valueAxis" type="Measure"
-                        values="Exports" />
-                          <viz.feeds:FeedItem uid="valueAxis" type="Measure"
-                        values="NACH (EE Bytes)" />
+                          <!-- <viz.feeds:FeedItem uid="valueAxis" type="Measure"
+                        values="Exports" /> -->
+                          <!-- <viz.feeds:FeedItem uid="valueAxis" type="Measure"
+                        values="NACH (EE Bytes)" /> -->
                     <viz.feeds:FeedItem uid="categoryAxis" type="Dimension"
                         values="Date" />
                 </viz:feeds>
