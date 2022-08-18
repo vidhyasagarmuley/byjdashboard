@@ -380,7 +380,7 @@ sap.ui.define([
                 categoryAxis: {
                     title: {
                         visible: true,
-                        text: 'Monthy'
+                        text: 'Monthly'
                     }
                 },
                 title: {
