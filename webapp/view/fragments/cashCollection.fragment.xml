@@ -13,6 +13,14 @@
 		<l:BlockLayoutCell> -->
          <layout:FixFlex id='cashCollectionchartFixFlex' minFlexSize="250">
           <layout:fixContent> 
+           <VBox class='settingsBox'>
+                        <Label text="Filter By" design="Bold" class='settingsLabel'></Label>
+                    <Select>
+                        <core:Item key = "01" text = "Monthly"/>
+                        <core:Item key = "02" text = "Weekly"/>
+                        <core:Item key = "03" text = "Daily"/>
+                    </Select>
+            </VBox>
           </layout:fixContent>
            <layout:flexContent>
             <viz:Popover id="cashCollectionPopOver"></viz:Popover>

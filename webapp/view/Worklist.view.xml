@@ -81,6 +81,27 @@
 				</uxap:snappedTitleOnMobile>
 			</uxap:ObjectPageDynamicHeaderTitle>
 		</uxap:headerTitle>
+			<uxap:headerContent>
+			<!-- <m:FlexBox wrap="Wrap" fitContainer="true" >
+				<layout:VerticalLayout class="sapUiMediumMarginBeginEnd">
+					<m:Label text="Options" design="Bold" />
+					<m:Select>
+					<core:Item key = "01" text = "Monthly"/>
+					<core:Item key = "02" text = "Weekly"/>
+					<core:Item key = "03" text = "Daily"/>
+					</m:Select>
+				</layout:VerticalLayout> -->
+
+				<!-- <layout:VerticalLayout class="sapUiMediumMarginBeginEnd">
+					<m:Label text="Quality Program Accountable" design="Bold" />
+					<m:Text text="{qualityManager}"/>
+					<m:Text text="{qmId}"/>
+				</layout:VerticalLayout>
+				<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+					<m:Label text="Product Group : {appModel>/id}"/>
+				</layout:VerticalLayout> -->
+			<!-- </m:FlexBox> -->
+		</uxap:headerContent>
 
 	<!-- <uxap:headerContent>
 		<m:Title text="Finanace Dashboards which contains {i18n>detail.cashcollection.title}" titleStyle="H6"/>
