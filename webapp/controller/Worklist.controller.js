@@ -380,7 +380,7 @@ sap.ui.define([
                 categoryAxis: {
                     title: {
                         visible: true,
-                        text: 'Monthly'
+                        text: 'Period'
                     }
                 },
                 title: {
@@ -433,6 +433,72 @@ sap.ui.define([
                 description = "NACH (EE Bytes)";
             }
             return description;
+        },
+        _handleChangeFilterType: function (oEvent) {
+            let selectedKey = oEvent.getSource().getSelectedKey();
+            let sKey = oEvent.getSource().getCustomData()[0].getValue();
+            let WeeklyMonthlyData = this._handleGetSampleData(selectedKey, sKey);
+
+        },
+        _handleGetSampleData: function (selectedKey, sKey) {
+            let data, sField;
+            switch (sKey) {
+                case "loanPartners":
+                    sField = "Loan Partners";
+                    break;
+                case "export":
+                    sField = "Exports";
+                    break;
+                case "nachEEBytes":
+                    sField = "NACH (EE Bytes)";
+                    break;
+                case "payuAndRozaPay":
+                    sField = "PayU and Razorpay";
+                    break;
+                case "retailDirectToBank":
+                    sField = "Retail Direct to Bank";
+                    break;
+            }
+            if (selectedKey === "01") {
+                data = [{
+                        [sField]: 23733.00,
+                        "Date": "01/01/2022"
+                    },
+                    {
+                        [sField]: 23733.00,
+                        "Date": "01/02/2022"
+                    },
+                    {
+                        [sField]: 58463.00,
+                        "Date": "01/03/2022"
+                    },
+                ]
+            } else if (selectedKey === "02") {
+                data = [{
+                        [sField]: 23733.00,
+                        "Date": "01/01/2022"
+                    },
+                    {
+                        [sField]: 23733.00,
+                        "Date": "02/01/2022"
+                    },
+                    {
+                        [sField]: 58463.00,
+                        "Date": "03/01/2022"
+                    },
+                    {
+                        [sField]: 21463.00,
+                        "Date": "04/01/2022"
+                    },
+                    {
+                        [sField]: 36463.00,
+                        "Date": "05/01/2022"
+                    },
+                ]
+            }
+            let sProperty = "/" + sKey;
+            this.getModel("detailJSONModel").setProperty(sProperty, data);
+
         }
 
     });

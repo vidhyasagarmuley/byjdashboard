@@ -7,7 +7,8 @@
     xmlns:card="sap.f.cards"
     xmlns:f="sap.f"
     xmlns:l="sap.ui.layout"
-    xmlns:layout="sap.ui.layout">
+    xmlns:layout="sap.ui.layout"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
     <!-- <l:BlockLayout background="Dashboard">
 	<l:BlockLayoutRow accentCells="Accent1">
 		<l:BlockLayoutCell> -->
@@ -15,10 +16,10 @@
           <layout:fixContent> 
             <VBox class='settingsBox'>
                         <Label text="Filter By" design="Bold" class='settingsLabel'></Label>
-                    <Select>
+                    <Select app:controll = "export" change = "_handleChangeFilterType">
                         <core:Item key = "01" text = "Monthly"/>
-                        <core:Item key = "02" text = "Weekly"/>
-                        <core:Item key = "03" text = "Daily"/>
+                        <!-- <core:Item key = "02" text = "Weekly"/> -->
+                        <core:Item key = "02" text = "Daily"/>
                     </Select>
             </VBox>
           </layout:fixContent>
