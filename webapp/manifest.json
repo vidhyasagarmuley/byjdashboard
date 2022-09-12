@@ -17,7 +17,7 @@
         },
         "dataSources": {
             "mainService": {
-                "uri": "/v2/northwind/northwind.svc/",
+                "uri": "/sap/opu/odata/sap/ZGW_CASH_COLLECTION_SRV/",
                 "type": "OData",
                 "settings": {
                     "annotations": [],

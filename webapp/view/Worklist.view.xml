@@ -189,7 +189,7 @@
 	</uxap:subSections>
 	</uxap:ObjectPageSection>
 
-	<uxap:ObjectPageSection>
+	<!-- <uxap:ObjectPageSection>
 		<uxap:subSections>
 	<uxap:ObjectPageSubSection showTitle = "true" title = "{i18n>detail.cashcollection.title}">
 		<uxap:blocks>
@@ -200,7 +200,7 @@
 	</uxap:blocks>
 	</uxap:ObjectPageSubSection>
 	</uxap:subSections>
-	</uxap:ObjectPageSection>
+	</uxap:ObjectPageSection> -->
 	
 	</uxap:sections>
 	</uxap:ObjectPageLayout>

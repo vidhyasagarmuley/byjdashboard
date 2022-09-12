@@ -6,7 +6,7 @@
 	<l:BlockLayoutRow accentCells="Accent1">
 		<l:BlockLayoutCell> -->
     <commons:ChartContainer showFullScreen="false" showPersonalization="false"
-        autoAdjustHeight="false" title="Loan Partners">
+        autoAdjustHeight="false" title="Retail Direct to Bank">
         <commons:content>
             <commons:ChartContainerContent icon="sap-icon://table-view" title="Table">
                 <commons:content>

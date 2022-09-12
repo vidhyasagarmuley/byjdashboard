@@ -6,23 +6,48 @@
     xmlns="sap.m"
     xmlns:card="sap.f.cards"
     xmlns:f="sap.f"
+    xmlns:commons="sap.suite.ui.commons"
     xmlns:l="sap.ui.layout"
     xmlns:layout="sap.ui.layout"
     xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
     <!-- <l:BlockLayout background="Dashboard">
 	<l:BlockLayoutRow accentCells="Accent1">
 		<l:BlockLayoutCell> -->
+            <commons:ChartContainer showFullScreen="false" showPersonalization="false"
+        autoAdjustHeight="false" title="PayU and Razopay">
+        <commons:content>
+            <commons:ChartContainerContent icon="sap-icon://table-view" title="Table">
+                <commons:content>
+                    <Table items="{detailJSONModel>/payuAndRozaPay}">
+                        <columns>
+                            <Column>
+                                <Text text="Date" />
+                            </Column>
+                            <Column minScreenWidth="Tablet" demandPopin="true">
+                                <Text text="Amount" />
+                            </Column>
+                        </columns>
+                        <ColumnListItem vAlign="Middle">
+                            <cells>
+                                <ObjectIdentifier title="{detailJSONModel>Date}" />
+                                <Text text="{path: 'detailJSONModel>PayU and Razorpay', formatter: '.formatter.formatNumberIntoCurrency'}" />
+                            </cells>
+                        </ColumnListItem>
+                    </Table>
+                </commons:content>
+            </commons:ChartContainerContent>
+            <commons:ChartContainerContent icon="sap-icon://line-chart" title="Line Chart">
+                <commons:content>
          <layout:FixFlex id='payuAndRozaPaychartFixFlex' minFlexSize="250">
-          <layout:fixContent> 
+          <!-- <layout:fixContent> 
             <VBox class='settingsBox'>
                         <Label text="Filter By" design="Bold" class='settingsLabel'></Label>
                     <Select app:controll = "payuAndRozaPay" change = "_handleChangeFilterType">
                         <core:Item key = "01" text = "Monthly"/>
-                        <!-- <core:Item key = "02" text = "Weekly"/> -->
                         <core:Item key = "02" text = "Daily"/>
                     </Select>
             </VBox>
-          </layout:fixContent>
+          </layout:fixContent> -->
            <layout:flexContent>
             <viz:Popover id="payuAndRozaPayPopOver"></viz:Popover>
             <viz:VizFrame id="payuAndRozaPay" uiConfig="{applicationSet:'fiori'}"
@@ -69,6 +94,25 @@
             </viz:VizFrame>
             </layout:flexContent>
         </layout:FixFlex>
+         </commons:content>
+            </commons:ChartContainerContent>
+        </commons:content>
+        <commons:toolbar>
+			<OverflowToolbar>
+                <!-- <Label text="Filter By" design="Bold" class='settingsLabel'></Label> -->
+                <Select app:controll = "loanPartners" change = "_handleChangeFilterType">
+                    <core:Item key = "01" text = "Monthly"/>
+                    <core:Item key = "02" text = "Daily"/>
+                </Select>
+                <ToolbarSpacer/>
+                <commons:ChartContainerToolbarPlaceholder></commons:ChartContainerToolbarPlaceholder>
+				<!-- <Button id="btnAction1" text="CustomAction" type="Transparent" press="onCustomActionPress"></Button>
+				<ToolbarSpacer/>
+				<Button id="btnAction2" text="CustomAction" type="Transparent" press="onCustomActionPress"></Button>
+				<commons:ChartContainerToolbarPlaceholder></commons:ChartContainerToolbarPlaceholder> -->
+			</OverflowToolbar>
+		</commons:toolbar>
+    </commons:ChartContainer>
      <!-- </l:BlockLayoutCell>
 			</l:BlockLayoutRow>
 		</l:BlockLayout> -->
