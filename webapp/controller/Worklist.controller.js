@@ -10,8 +10,9 @@ sap.ui.define([
     'sap/viz/ui5/api/env/Format',
     "sap/ui/model/Sorter",
     "sap/m/MessageBox",
+    "com/sap/byjus/byjusdashboard/controller/SmartTableBindingUpdate",
 ], function (BaseController, JSONModel, formatter, Filter, FilterOperator, InitPage, FlattenedDataset,
-    ChartFormatter, Format, Sorter, MessageBox) {
+    ChartFormatter, Format, Sorter, MessageBox, SmartTableBindingUpdate) {
     "use strict";
 
     return BaseController.extend("com.sap.byjus.byjusdashboard.controller.Worklist", {
@@ -44,160 +45,17 @@ sap.ui.define([
             var oStaticDataModel = new JSONModel(sJsonPath);
             this.getView().setModel(oStaticDataModel, "staticDataModel");
             var detailJSONModel = new JSONModel({
-                "cashCollection": [{
-                        "Loan Partners": 23733.00,
-                        "Retail Direct to Bank": 12322.00,
-                        "PayU and Razorpay": 28674.00,
-                        "Exports": 303023.00,
-                        "NACH (EE Bytes)": 494493.00,
-                        "Date": "01/01/2022"
-                    },
-                    {
-                        "Loan Partners": 23733.00,
-                        "Retail Direct to Bank": 23733.00,
-                        "PayU and Razorpay": 23733.00,
-                        "Exports": 23733.00,
-                        "NACH (EE Bytes)": 23733.00,
-                        "Date": "01/02/2022"
-                    },
-                    {
-                        "Loan Partners": 58463.00,
-                        "Retail Direct to Bank": 33939.00,
-                        "PayU and Razorpay": 48293.00,
-                        "Exports": 237323.00,
-                        "NACH (EE Bytes)": 36362.00,
-                        "Date": "01/03/2022"
-                    },
-                ],
-                "loanPartners": [{
-                        "Loan Partners": 23733.00,
-                        // "Retail Direct to Bank": 12322.00,
-                        // "PayU and Razorpay": 28674.00,
-                        // "Exports": 303023.00,
-                        // "NACH (EE Bytes)": 494493.00,
-                        "Date": "01/01/2022"
-                    },
-                    {
-                        "Loan Partners": 23733.00,
-                        // "Retail Direct to Bank": 23733.00,
-                        // "PayU and Razorpay": 23733.00,
-                        // "Exports": 23733.00,
-                        // "NACH (EE Bytes)": 23733.00,
-                        "Date": "01/02/2022"
-                    },
-                    {
-                        "Loan Partners": 58463.00,
-                        // "Retail Direct to Bank": 33939.00,
-                        // "PayU and Razorpay": 48293.00,
-                        // "Exports": 237323.00,
-                        // "NACH (EE Bytes)": 36362.00,
-                        "Date": "01/03/2022"
-                    },
-                ],
-                "retailDirectToBank": [{
-                        // "Loan Partners": 23733.00,
-                        "Retail Direct to Bank": 12322.00,
-                        // "PayU and Razorpay": 28674.00,
-                        // "Exports": 303023.00,
-                        // "NACH (EE Bytes)": 494493.00,
-                        "Date": "01/01/2022"
-                    },
-                    {
-                        // "Loan Partners": 23733.00,
-                        "Retail Direct to Bank": 23733.00,
-                        // "PayU and Razorpay": 23733.00,
-                        // "Exports": 23733.00,
-                        // "NACH (EE Bytes)": 23733.00,
-                        "Date": "01/02/2022"
-                    },
-                    {
-                        // "Loan Partners": 58463.00,
-                        "Retail Direct to Bank": 33939.00,
-                        // "PayU and Razorpay": 48293.00,
-                        // "Exports": 237323.00,
-                        // "NACH (EE Bytes)": 36362.00,
-                        "Date": "01/03/2022"
-                    },
-                ],
-                "payuAndRozaPay": [{
-                        // "Loan Partners": 23733.00,
-                        // "Retail Direct to Bank": 12322.00,
-                        "PayU and Razorpay": 28674.00,
-                        // "Exports": 303023.00,
-                        // "NACH (EE Bytes)": 494493.00,
-                        "Date": "01/01/2022"
-                    },
-                    {
-                        // "Loan Partners": 23733.00,
-                        // "Retail Direct to Bank": 23733.00,
-                        "PayU and Razorpay": 23733.00,
-                        // "Exports": 23733.00,
-                        // "NACH (EE Bytes)": 23733.00,
-                        "Date": "01/02/2022"
-                    },
-                    {
-                        // "Loan Partners": 58463.00,
-                        // "Retail Direct to Bank": 33939.00,
-                        "PayU and Razorpay": 48293.00,
-                        // "Exports": 237323.00,
-                        // "NACH (EE Bytes)": 36362.00,
-                        "Date": "01/03/2022"
-                    },
-                ],
-                "export": [{
-                        // "Loan Partners": 23733.00,
-                        // "Retail Direct to Bank": 12322.00,
-                        // "PayU and Razorpay": 28674.00,
-                        "Exports": 303023.00,
-                        // "NACH (EE Bytes)": 494493.00,
-                        "Date": "01/01/2022"
-                    },
-                    {
-                        // "Loan Partners": 23733.00,
-                        // "Retail Direct to Bank": 23733.00,
-                        // "PayU and Razorpay": 23733.00,
-                        "Exports": 23733.00,
-                        // "NACH (EE Bytes)": 23733.00,
-                        "Date": "01/02/2022"
-                    },
-                    {
-                        // "Loan Partners": 58463.00,
-                        // "Retail Direct to Bank": 33939.00,
-                        // "PayU and Razorpay": 48293.00,
-                        "Exports": 237323.00,
-                        // "NACH (EE Bytes)": 36362.00,
-                        "Date": "01/03/2022"
-                    },
-                ],
-                "nachEEBytes": [{
-                        // "Loan Partners": 23733.00,
-                        // "Retail Direct to Bank": 12322.00,
-                        // "PayU and Razorpay": 28674.00,
-                        // "Exports": 303023.00,
-                        "NACH (EE Bytes)": 44493.00,
-                        "Date": "01/01/2022"
-                    },
-                    {
-                        // "Loan Partners": 23733.00,
-                        // "Retail Direct to Bank": 23733.00,
-                        // "PayU and Razorpay": 23733.00,
-                        // "Exports": 23733.00,
-                        "NACH (EE Bytes)": 23933.00,
-                        "Date": "01/02/2022"
-                    },
-                    {
-                        // "Loan Partners": 58463.00,
-                        // "Retail Direct to Bank": 33939.00,
-                        // "PayU and Razorpay": 48293.00,
-                        // "Exports": 237323.00,
-                        "NACH (EE Bytes)": 36362.00,
-                        "Date": "01/03/2022"
-                    },
+                "cashCollection": [
                 ]
             });
             this.getView().setModel(detailJSONModel, "detailJSONModel");
             this._handleSetVizFrameData(detailJSONModel.getProperty("/"));
-
+            this.getRouter().getRoute("worklist").attachPatternMatched(this._onPatternMatch, this);
+        },
+        _onPatternMatch: function (oEvent) {
+            // this.getModel().metadataLoaded().then(function() {
+            //     this.byId("idCashCollectionTable").rebindTable();
+            //  }.bind(this));
         },
 
         /* =========================================================== */
@@ -250,21 +108,42 @@ sap.ui.define([
 
 
         onSearch: function (oEvent) {
-            if (oEvent.getParameters().refreshButtonPressed) {
-                // Search field's 'refresh' button has been pressed.
-                // This is visible if you select any main list item.
-                // In this case no new search is triggered, we only
-                // refresh the list binding.
-                this.onRefresh();
-            } else {
-                var aTableSearchState = [];
-                var sQuery = oEvent.getParameter("query");
-
-                if (sQuery && sQuery.length > 0) {
-                    aTableSearchState = [new Filter("CategoryName", FilterOperator.Contains, sQuery)];
+           let selectionSet = oEvent.getParameters().selectionSet;
+           let sControl,sValue, filters = [], sPath;
+           if (selectionSet.length > 0) {
+            selectionSet.forEach(function(item) {
+                sControl = item.getMetadata()._sClassName;
+                sValue = "";
+                if (sControl === "sap.m.DatePicker" || sControl === "Input") {
+                    if (sControl === "sap.m.DatePicker") {
+                        sValue = item.getDateValue();
+                    } else {
+                        sValue = item.getValue();
+                    }
+                } else if (sControl === "sap.m.ComboBox" || sControl === "sap.m.Select") {
+                    sValue = item.getSelectedKey();
                 }
-                this._applySearch(aTableSearchState);
-            }
+                if (sValue) {
+                    sPath = item.getCustomData()[0].getValue();
+                    if (sPath === "fromDate" || sPath === "toDate") {
+                        if (sPath === "fromDate") {
+                            filters.push(new Filter('Date', "GE", sValue));
+                        } else if (sPath === "toDate") {
+                            filters.push(new Filter('Date', "LE", sValue));
+                        }
+                    } else if (sPath === "partner") {
+                          filters.push(new Filter(sPath, "EQ", sValue));
+                    }
+                }
+            });
+            var aFilters = new Filter({
+				filters: filters,
+				and: true
+			});
+            var oBinding = this.byId("idCashCollectionTable").getBinding("items");
+			oBinding.filter(aFilters);
+            this.readBackendData(filters);
+           }
 
         },
 
@@ -308,12 +187,12 @@ sap.ui.define([
             }
         },
         _handleSetVizFrameData: function (data) {
-            var sProperties = this.getView().getModel("detailJSONModel").getProperty("/");
-            var keys = Object.keys(sProperties);
-            keys.forEach((key) => {
+            // var sProperties = this.getView().getModel("detailJSONModel").getProperty("/");
+            // var keys = Object.keys(sProperties);
+            // keys.forEach((key) => {
                 //    this._handlePrepareData(key ,data);
-                this._handleVizFrames(key);
-            });
+                this._handleVizFrames("vizframe");
+            // });
         },
         _handlePrepareData: function (key, data) {
             var keyArray = [];
@@ -416,24 +295,32 @@ sap.ui.define([
             }
         },
         getDashboardDescription: function (oControll) {
-            let description = '';
-            if (oControll.getId().indexOf("cashCollection") >= 0) {
-                description = "Cash collection from different sources";
-            } else if (oControll.getId().indexOf("loanPartners") >= 0) {
-                description = "Loan Partners";
-            } else if (oControll.getId().indexOf("retailDirectToBank") >= 0) {
-                description = "Retail Direct To Bank";
-            } else if (oControll.getId().indexOf("loanPartners") >= 0) {
-                description = "Loan Partners";
-            } else if (oControll.getId().indexOf("payuAndRozaPay") >= 0) {
-                description = "PayU and Razorpay";
-            } else if (oControll.getId().indexOf("export") >= 0) {
-                description = "Exports";
-            } else if (oControll.getId().indexOf("nachEEBytes") >= 0) {
-                description = "NACH (EE Bytes)";
+            oControll = this.byId("idComboSources").getSelectedKey();
+            if (oControll) {
+                return this.byId("idComboSources").getSelectedItem().getText();
+            } else {
+                return "";
             }
-            return description;
         },
+        // getDashboardDescription: function (oControll) {
+        //     let description = '';
+        //     if (oControll.getId().indexOf("cashCollection") >= 0) {
+        //         description = "Cash collection from different sources";
+        //     } else if (oControll.getId().indexOf("loanPartners") >= 0) {
+        //         description = "Loan Partners";
+        //     } else if (oControll.getId().indexOf("retailDirectToBank") >= 0) {
+        //         description = "Retail Direct To Bank";
+        //     } else if (oControll.getId().indexOf("loanPartners") >= 0) {
+        //         description = "Loan Partners";
+        //     } else if (oControll.getId().indexOf("payuAndRozaPay") >= 0) {
+        //         description = "PayU and Razorpay";
+        //     } else if (oControll.getId().indexOf("export") >= 0) {
+        //         description = "Exports";
+        //     } else if (oControll.getId().indexOf("nachEEBytes") >= 0) {
+        //         description = "NACH (EE Bytes)";
+        //     }
+        //     return description;
+        // },
         _handleChangeFilterType: function (oEvent) {
             let selectedKey = oEvent.getSource().getSelectedKey();
             let sKey = oEvent.getSource().getCustomData()[0].getValue();
@@ -499,6 +386,50 @@ sap.ui.define([
             let sProperty = "/" + sKey;
             this.getModel("detailJSONModel").setProperty(sProperty, data);
 
+        },
+        // onBeforeRebindPayUTable: function (oEvent) {
+        //     var oUpdate = new SmartTableBindingUpdate(oEvent.getParameter("bindingParams"));
+        //     oUpdate.addFilter("partner", FilterOperator.EQ, 'G');
+        //     oUpdate.endFilterAnd();
+        // },
+        onSelectionChangeCombobox: function (oEvent) {
+
+        },
+        onSwitchChange: function (oEvent) {
+            let sSelectedkey = oEvent.getSource().getSelectedKey();
+            if (this.byId("idComboSources").getSelectedKey()) {
+            if (sSelectedkey === "2") {
+                this.byId("cashCollection").setVisible(false);
+                this.byId("lineGraph").setVisible(true);
+                // this.byId("idFilterBar").fireSearch();
+                // this._handleOpenVizFrame();
+            } else if (sSelectedkey === "1") {
+                this.byId("cashCollection").setVisible(true);
+                this.byId("lineGraph").setVisible(false);
+            }
+        } else {
+            oEvent.getSource().setSelectedKey("1");
+            sap.m.MessageToast.show("Please select the source first");
+        }
+        },
+        // _handleOpenVizFrame: function () {
+        //     let sPromise  = new Promise(function(resolve, reject){
+        //         this.readBackendData(resolve, reject);
+        //     });
+        // },
+        readBackendData: function (aFilters) {
+            this.getView().setBusy(true);
+            this.getModel().read("/zcash_collection", {
+                filters:aFilters,
+                success: function (data) {
+                    this.getView().setBusy(false);
+                    this.getView().getModel("detailJSONModel").setProperty("/vizframeData", data.results);
+                }.bind(this), 
+                error: function (oError) {
+                    this.getView().setBusy(false);
+                    console.log(oError)
+                }.bind(this)
+            });
         }
 
     });

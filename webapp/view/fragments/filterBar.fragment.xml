@@ -1,0 +1,61 @@
+<core:FragmentDefinition
+ xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data" 
+    xmlns:viz="sap.viz.ui5.controls" 
+    xmlns:core="sap.ui.core"
+    xmlns:commons="sap.suite.ui.commons"
+    xmlns="sap.m"
+    xmlns:card="sap.f.cards"
+    xmlns:f="sap.f"
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:l="sap.ui.layout"
+    xmlns:layout="sap.ui.layout"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+ <fb:FilterBar id = "idFilterBar" reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true">
+			<fb:filterGroupItems>
+				<fb:FilterGroupItem groupName="__$INTERNAL$" name="A" label="From Date" partOfCurrentVariant="true" visibleInFilterBar="true">
+					<fb:control>
+						<DatePicker app:key = "fromDate"/>
+					</fb:control>
+				</fb:FilterGroupItem>
+                <fb:FilterGroupItem groupName="__$INTERNAL$" name="B" label="To Date" partOfCurrentVariant="true" visibleInFilterBar="true">
+					<fb:control>
+						<DatePicker app:key = "toDate"/>
+					</fb:control>
+				</fb:FilterGroupItem>
+				<fb:FilterGroupItem groupName="__$INTERNAL$" name="C" label="Daily / Monthly" labelTooltip="Tooltip Example" mandatory="true" partOfCurrentVariant="true" visibleInFilterBar="true">
+					<fb:control>
+						<ComboBox type="Text" change ="onSelectionChangeCombobox" app:key = "Source">
+							<items>
+								<core:Item key="001" text="Daily"/>
+								<core:Item key="002" text="Monthly"/>
+								<!-- <core:Item key="003" text="APJ"/> -->
+							</items>
+						</ComboBox>
+					</fb:control>
+				</fb:FilterGroupItem>
+                <fb:FilterGroupItem groupName="__$INTERNAL$" name="D" label="Sources" labelTooltip="Tooltip Example" mandatory="true" partOfCurrentVariant="true" visibleInFilterBar="true">
+					<fb:control>
+						<ComboBox id = "idComboSources" type="Text" change ="onSelectionChangeCombobox" app:key = "partner">
+							<items>
+								<core:Item key="L" text="Loan Partners"/>
+								<core:Item key="R" text="Retail Direct to Bank"/>
+                                <core:Item key="G" text="PayU and Razorpay"/>
+                                <core:Item key="E" text="Exports"/>
+                                <core:Item key="O" text="Others"/>
+								<!-- <core:Item key="003" text="APJ"/> -->
+							</items>
+						</ComboBox>
+					</fb:control>
+				</fb:FilterGroupItem>
+                <fb:FilterGroupItem groupName="__$INTERNAL$" name="E" label="Graphical View" labelTooltip="Tooltip Example" mandatory="false" partOfCurrentVariant="true" visibleInFilterBar="true">
+					<fb:control>
+					<Select id = "idSwitchBox" state="false"  change="onSwitchChange" app:key = "switch"> 
+                     <core:Item key="1" text="Tabular View"/>
+                     <core:Item key="2" text="Graphical View"/>
+                    </Select>
+					</fb:control>
+				</fb:FilterGroupItem>
+			</fb:filterGroupItems>
+	    </fb:FilterBar>
+</core:FragmentDefinition>

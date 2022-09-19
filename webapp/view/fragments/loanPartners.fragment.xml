@@ -10,19 +10,26 @@
         <commons:content>
             <commons:ChartContainerContent icon="sap-icon://table-view" title="Table">
                 <commons:content>
-                    <Table items="{detailJSONModel>/loanPartners}">
+                    <Table  items="{path:'/zcash_collection', 
+                            filters: [{ path: 'partner', operator: 'EQ', value1: 'L' }]}">
                         <columns>
                             <Column>
                                 <Text text="Date" />
                             </Column>
-                            <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Column minScreenWidth="Tablet" demandPopin="true" hAlign = "Right">
                                 <Text text="Amount" />
                             </Column>
                         </columns>
                         <ColumnListItem vAlign="Middle">
                             <cells>
-                                <ObjectIdentifier title="{detailJSONModel>Date}" />
-                                <Text text="{path: 'detailJSONModel>Loan Partners', formatter: '.formatter.formatNumberIntoCurrency'}" />
+                                <ObjectIdentifier title="{ 
+                                    path: 'h_budat',
+                                    type: 'sap.ui.model.type.Date',
+                                    formatOptions: {
+                                        pattern: 'dd MMMM yyyy' 
+                                        }  
+                                    }" />
+                                <Text text="{path: 'amt', formatter: '.formatter.formatNumberIntoCurrency'}" />
                             </cells>
                         </ColumnListItem>
                     </Table>
@@ -89,12 +96,12 @@
         <commons:toolbar>
 			<OverflowToolbar>
                 <!-- <Label text="Filter By" design="Bold" class='settingsLabel'></Label> -->
-                <Select app:controll = "loanPartners" change = "_handleChangeFilterType">
-                    <core:Item key = "01" text = "Monthly"/>
+                <!-- <Select app:controll = "loanPartners" change = "_handleChangeFilterType">
                     <core:Item key = "02" text = "Daily"/>
+                    <core:Item key = "01" text = "Monthly"/>
                 </Select>
                 <ToolbarSpacer/>
-                <commons:ChartContainerToolbarPlaceholder></commons:ChartContainerToolbarPlaceholder>
+                <commons:ChartContainerToolbarPlaceholder></commons:ChartContainerToolbarPlaceholder> -->
 				<!-- <Button id="btnAction1" text="CustomAction" type="Transparent" press="onCustomActionPress"></Button>
 				<ToolbarSpacer/>
 				<Button id="btnAction2" text="CustomAction" type="Transparent" press="onCustomActionPress"></Button>

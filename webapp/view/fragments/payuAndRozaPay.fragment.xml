@@ -9,6 +9,7 @@
     xmlns:commons="sap.suite.ui.commons"
     xmlns:l="sap.ui.layout"
     xmlns:layout="sap.ui.layout"
+    xmlns:smartTable="sap.ui.comp.smarttable"
     xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
     <!-- <l:BlockLayout background="Dashboard">
 	<l:BlockLayoutRow accentCells="Accent1">
@@ -18,22 +19,61 @@
         <commons:content>
             <commons:ChartContainerContent icon="sap-icon://table-view" title="Table">
                 <commons:content>
-                    <Table items="{detailJSONModel>/payuAndRozaPay}">
-                        <columns>
-                            <Column>
-                                <Text text="Date" />
-                            </Column>
-                            <Column minScreenWidth="Tablet" demandPopin="true">
-                                <Text text="Amount" />
-                            </Column>
-                        </columns>
-                        <ColumnListItem vAlign="Middle">
-                            <cells>
-                                <ObjectIdentifier title="{detailJSONModel>Date}" />
-                                <Text text="{path: 'detailJSONModel>PayU and Razorpay', formatter: '.formatter.formatNumberIntoCurrency'}" />
-                            </cells>
-                        </ColumnListItem>
-                    </Table>
+     <!-- <smartTable:SmartTable  
+        editable="true" 
+        id = "idCashCollectionTable"
+        entitySet="zcash_collection" 
+        useTablePersonalisation="true" 
+        header="" 
+        showRowCount="true" 
+        tableType = "ResponsiveTable"
+        initiallyVisibleFields= "partner,h_budat,amt"
+        requestAtLeastFields = "partner,h_budat,amt"
+        useExportToExcel="true" 
+        enableAutoBinding="false" 
+        class="sapUiResponsiveContentPadding sapUiMediumMarginBottom TableAlternateRowColor" 
+        showFullScreenButton="true"  
+        demandPopin="true"> -->
+        <Table items = "{/zcash_collection}">
+            <columns>
+             <Column>
+                    <customData>
+                    <!-- <core:CustomData key="p13nData" 
+                        value='\{"columnKey": "Date","columnIndex":"1", "leadingProperty": "Date"}' /> -->
+                </customData>
+                    <Text text="Pertner" />
+                </Column>
+                <Column>
+                    <customData>
+                    <!-- <core:CustomData key="p13nData" 
+                        value='\{"columnKey": "Date","columnIndex":"1", "leadingProperty": "Date"}' /> -->
+                </customData>
+                    <Text text="Date" />
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true" hAlign = "Right">
+                    <customData>
+                    <!-- <core:CustomData key="p13nData" 
+                        value='\{"columnKey": "Amount","columnIndex":"2", "leadingProperty": "Amount"}' /> -->
+                </customData>
+                    <Text text="Amount" />
+                </Column>
+            </columns>
+            <ColumnListItem vAlign="Middle">
+                <cells>
+                <Text text = "{pertner}"/>
+                <ObjectIdentifier title="{ 
+                    path: 'h_budat',
+                    type: 'sap.ui.model.type.Date',
+                    formatOptions: {
+                        pattern: 'dd MMMM yyyy' 
+                        }  
+                    }" />
+                    <Text text="{path: 'amt', formatter: '.formatter.formatNumberIntoCurrency'}" />
+                </cells>
+            </ColumnListItem>
+        </Table>
+	<!-- </smartTable:SmartTable> -->
+                   
                 </commons:content>
             </commons:ChartContainerContent>
             <commons:ChartContainerContent icon="sap-icon://line-chart" title="Line Chart">
@@ -100,12 +140,12 @@
         <commons:toolbar>
 			<OverflowToolbar>
                 <!-- <Label text="Filter By" design="Bold" class='settingsLabel'></Label> -->
-                <Select app:controll = "loanPartners" change = "_handleChangeFilterType">
-                    <core:Item key = "01" text = "Monthly"/>
+                <!-- <Select app:controll = "loanPartners" change = "_handleChangeFilterType">
                     <core:Item key = "02" text = "Daily"/>
+                    <core:Item key = "01" text = "Monthly"/>
                 </Select>
                 <ToolbarSpacer/>
-                <commons:ChartContainerToolbarPlaceholder></commons:ChartContainerToolbarPlaceholder>
+                <commons:ChartContainerToolbarPlaceholder></commons:ChartContainerToolbarPlaceholder> -->
 				<!-- <Button id="btnAction1" text="CustomAction" type="Transparent" press="onCustomActionPress"></Button>
 				<ToolbarSpacer/>
 				<Button id="btnAction2" text="CustomAction" type="Transparent" press="onCustomActionPress"></Button>

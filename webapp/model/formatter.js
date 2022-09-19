@@ -31,6 +31,29 @@ sap.ui.define([], function () {
             });
 
            return formatter.format(parseInt(sValue));
+        },
+        formatPartners: function (sValue) {
+            let sRetrun = "";
+            if (sValue) {
+                switch (sValue) {
+                    case 'L' :
+                        sRetrun = 'Loan Partners'
+                        break;
+                    case 'R' :
+                        sRetrun = 'Retail Direct to Bank'
+                        break;
+                    case 'G' :
+                        sRetrun = 'PayU and Razorpay'
+                        break;
+                    case 'E' :
+                        sRetrun = 'Exports'
+                        break;
+                    case 'O' :
+                        sRetrun = 'Others'
+                        break;   
+                }
+            }
+            return sRetrun;
         }
 
     };

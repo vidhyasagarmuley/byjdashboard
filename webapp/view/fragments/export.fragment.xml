@@ -100,12 +100,12 @@
         <commons:toolbar>
 			<OverflowToolbar>
                 <!-- <Label text="Filter By" design="Bold" class='settingsLabel'></Label> -->
-                <Select app:controll = "loanPartners" change = "_handleChangeFilterType">
+                <!-- <Select app:controll = "loanPartners" change = "_handleChangeFilterType">
                     <core:Item key = "01" text = "Monthly"/>
                     <core:Item key = "02" text = "Daily"/>
                 </Select>
                 <ToolbarSpacer/>
-                <commons:ChartContainerToolbarPlaceholder></commons:ChartContainerToolbarPlaceholder>
+                <commons:ChartContainerToolbarPlaceholder></commons:ChartContainerToolbarPlaceholder> -->
 				<!-- <Button id="btnAction1" text="CustomAction" type="Transparent" press="onCustomActionPress"></Button>
 				<ToolbarSpacer/>
 				<Button id="btnAction2" text="CustomAction" type="Transparent" press="onCustomActionPress"></Button>

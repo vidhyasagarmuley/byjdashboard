@@ -1,0 +1,52 @@
+<core:FragmentDefinition
+ xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data" 
+    xmlns:viz="sap.viz.ui5.controls" 
+    xmlns:core="sap.ui.core"
+    xmlns:commons="sap.suite.ui.commons"
+    xmlns="sap.m"
+    xmlns:card="sap.f.cards"
+    xmlns:f="sap.f"
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:l="sap.ui.layout"
+    xmlns:layout="sap.ui.layout"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+<Table id = "idCashCollectionTable" items = "{/zcash_collection}">
+            <columns>
+             <Column  hAlign = "Center">
+                    <customData>
+                    <!-- <core:CustomData key="p13nData" 
+                        value='\{"columnKey": "Date","columnIndex":"1", "leadingProperty": "Date"}' /> -->
+                </customData>
+                    <Text text="Partner" />
+                </Column>
+                <Column>
+                    <customData>
+                    <!-- <core:CustomData key="p13nData" 
+                        value='\{"columnKey": "Date","columnIndex":"1", "leadingProperty": "Date"}' /> -->
+                </customData>
+                    <Text text="Date" />
+                </Column>
+                <Column minScreenWidth="Tablet" hAlign = "Right">
+                    <customData>
+                    <!-- <core:CustomData key="p13nData" 
+                        value='\{"columnKey": "Amount","columnIndex":"2", "leadingProperty": "Amount"}' /> -->
+                </customData>
+                    <Text text="Amount" />
+                </Column>
+            </columns>
+            <ColumnListItem vAlign="Middle">
+                <cells>
+                <Text text = "{path:'partner',formatter: '.formatter.formatPartners'}"/>
+                <ObjectIdentifier title="{ 
+                    path: 'h_budat',
+                    type: 'sap.ui.model.type.Date',
+                    formatOptions: {
+                        pattern: 'dd MMMM yyyy' 
+                        }  
+                    }" />
+                    <Text text="{path: 'amt', formatter: '.formatter.formatNumberIntoCurrency'}" />
+                </cells>
+            </ColumnListItem>
+        </Table>
+</core:FragmentDefinition>

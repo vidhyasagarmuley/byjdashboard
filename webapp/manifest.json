@@ -87,7 +87,10 @@
             "": {
                 "dataSource": "mainService",
                 "preload": true,
-                "settings": {}
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "none"
+                  }
             }
         },
         "resources": {

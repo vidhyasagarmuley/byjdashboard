@@ -15,7 +15,7 @@
       "destination": "ui5"
     },
     {
-        "source": "^/odata/(.*)$",
+        "source": "^/sap/opu/odata/(.*)$",
         "authenticationType": "xsuaa",
         "destination": "byjusfioridev",
         "csrfProtection": false
