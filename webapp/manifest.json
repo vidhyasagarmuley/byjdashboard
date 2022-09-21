@@ -16,13 +16,22 @@
             "toolsId": "dbf83236-163e-48e2-85ad-f6638544d5ae"
         },
         "dataSources": {
-            "mainService": {
-                "uri": "/sap/opu/odata/sap/ZGW_CASH_COLLECTION_SRV/",
+            "ZGW_CASH_COLLECTION_SRV_Annotation": {
+                "uri": "/destinations/byjusfioridev/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZGW_CASH_COLLECTION_ANNO_MDL',Version='0001')/$value/",
+                "type": "ODataAnnotation",
+                "settings": {
+                    "localUri": "localService/ZGW_CASH_COLLECTION_SRV_Annotation.xml"
+                }
+            },
+            "ZGW_CASH_COLLECTION_SRV": {
+                "uri": "/sap/opu/odata/sap/ZGW_CASH_COLLECTION_SRV",
                 "type": "OData",
                 "settings": {
-                    "annotations": [],
-                    "localUri": "localService/metadata.xml",
-                    "odataVersion": "2.0"
+                    "odataVersion": "2.0",
+                    "annotations": [
+                        "ZGW_CASH_COLLECTION_SRV_Annotation"
+                    ],
+                    "localUri": "localService/metadata.xml"
                 }
             }
         },
@@ -85,12 +94,8 @@
                 }
             },
             "": {
-                "dataSource": "mainService",
                 "preload": true,
-                "settings": {
-                    "defaultBindingMode": "TwoWay",
-                    "defaultCountMode": "none"
-                  }
+                "dataSource": "ZGW_CASH_COLLECTION_SRV"
             }
         },
         "resources": {

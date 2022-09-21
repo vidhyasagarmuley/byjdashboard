@@ -1,0 +1,32 @@
+<core:FragmentDefinition
+ xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data" 
+    xmlns:viz="sap.viz.ui5.controls" 
+    xmlns:core="sap.ui.core"
+    xmlns:commons="sap.suite.ui.commons"
+    xmlns="sap.m"
+    xmlns:card="sap.f.cards"
+    xmlns:f="sap.f"
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:l="sap.ui.layout"
+    xmlns:layout="sap.ui.layout"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+
+            <ColumnListItem vAlign="Middle">
+                <cells>
+                <Text text = "{path:'partner',formatter: '.formatter.formatPartners'}"/>
+                <HBox>
+                <Text visible = "{= ${worklistView>/Flag} === '001' ? true: false}" text="{
+                    path: 'h_budat',
+                    type: 'sap.ui.model.type.Date',
+                    formatOptions: {
+                        pattern: 'dd-MM-yyyy' 
+                        }  
+                    }" />
+                    <Text text="{path: 'h_budat', formatter: '.formatter.formatMonthYear'}" visible = "{= ${worklistView>/Flag} === '001' ? false: true}"/>
+                    </HBox>
+                    <Text text="{path: 'amt', formatter: '.formatter.formatNumberIntoCurrency'}" />
+                </cells>
+            </ColumnListItem>
+       
+</core:FragmentDefinition>

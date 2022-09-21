@@ -32,6 +32,10 @@ server:
         backend:
           - path: /v2
             url: https://services.odata.org
+          - path: /sap/opu/odata/sap/ZGW_CASH_COLLECTION_SRV
+            url: http://Byjusdev:44330
+            client: '110'
+            destination: byjusfioridev
     - name: sap-fe-mockserver
       beforeMiddleware: csp
       configuration:

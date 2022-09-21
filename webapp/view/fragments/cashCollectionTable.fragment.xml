@@ -11,7 +11,7 @@
     xmlns:l="sap.ui.layout"
     xmlns:layout="sap.ui.layout"
     xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
-<Table id = "idCashCollectionTable" items = "{/zcash_collection}">
+<Table id = "idCashCollectionTable">
             <columns>
              <Column  hAlign = "Center">
                     <customData>
@@ -27,7 +27,7 @@
                 </customData>
                     <Text text="Date" />
                 </Column>
-                <Column minScreenWidth="Tablet" hAlign = "Right">
+                <Column minScreenWidth="Tablet" demandPopin="true" hAlign = "Right">
                     <customData>
                     <!-- <core:CustomData key="p13nData" 
                         value='\{"columnKey": "Amount","columnIndex":"2", "leadingProperty": "Amount"}' /> -->
@@ -35,10 +35,10 @@
                     <Text text="Amount" />
                 </Column>
             </columns>
-            <ColumnListItem vAlign="Middle">
+            <!-- <ColumnListItem vAlign="Middle">
                 <cells>
                 <Text text = "{path:'partner',formatter: '.formatter.formatPartners'}"/>
-                <ObjectIdentifier title="{ 
+                <ObjectIdentifier title="{
                     path: 'h_budat',
                     type: 'sap.ui.model.type.Date',
                     formatOptions: {
@@ -47,6 +47,6 @@
                     }" />
                     <Text text="{path: 'amt', formatter: '.formatter.formatNumberIntoCurrency'}" />
                 </cells>
-            </ColumnListItem>
+            </ColumnListItem> -->
         </Table>
 </core:FragmentDefinition>

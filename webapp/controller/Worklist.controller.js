@@ -38,7 +38,8 @@ sap.ui.define([
                 worklistTableTitle: this.getResourceBundle().getText("worklistTableTitle"),
                 shareSendEmailSubject: this.getResourceBundle().getText("shareSendEmailWorklistSubject"),
                 shareSendEmailMessage: this.getResourceBundle().getText("shareSendEmailWorklistMessage", [location.href]),
-                tableNoDataText: this.getResourceBundle().getText("tableNoDataText")
+                tableNoDataText: this.getResourceBundle().getText("tableNoDataText"),
+                Flag: "001"
             });
             this.setModel(oViewModel, "worklistView");
             var sJsonPath = jQuery.sap.getModulePath("com.sap.byjus.byjusdashboard", "/model/testData.json");
@@ -56,7 +57,36 @@ sap.ui.define([
             // this.getModel().metadataLoaded().then(function() {
             //     this.byId("idCashCollectionTable").rebindTable();
             //  }.bind(this));
+           let oParams = {
+               entity: "/zcash_collection",
+               filter: []
+           }
+          this.bindTableItems(oParams);
         },
+        bindTableItems : function (oParams) {
+            let sTable = this.byId("idCashCollectionTable");
+           if (!this.oTableItem) {
+                this.oTableItem = this._createFragment(this.createId("idFragmentCashCollectionItem"),
+                "com.sap.byjus.byjusdashboard.view.fragments.cashCollectionTableItem");
+           }
+            sTable.bindItems({
+				path: oParams.entity,
+                filters: oParams.filters,
+				template: this.oTableItem.clone(),
+				templateShareable: false
+			});
+			sTable.getBinding("items").refresh(true);
+        },
+       /* * Create Fragment
+        * @param {string} sFragmentID Fragment ID
+        * @param {string} sFragmentName Fragment name
+        * @returns {*} Fragment
+        * @private
+        */
+       _createFragment: function (sFragmentID, sFragmentName) {
+           var oFragment = sap.ui.xmlfragment(sFragmentID, sFragmentName, this);
+           return oFragment;
+       },
 
         /* =========================================================== */
         /* event handlers                                              */
@@ -122,27 +152,39 @@ sap.ui.define([
                     }
                 } else if (sControl === "sap.m.ComboBox" || sControl === "sap.m.Select") {
                     sValue = item.getSelectedKey();
+                    sPath = item.getCustomData()[0].getValue();
+                    if (sPath === "Source") {
+                        this.getModel("worklistView").setProperty("/Flag", sValue);
+                    }
                 }
                 if (sValue) {
                     sPath = item.getCustomData()[0].getValue();
                     if (sPath === "fromDate" || sPath === "toDate") {
+                        var finalValue =  sValue.toISOString().split('T')[0] + 'T00:00:00';;
+                            // sValue = 'datetime' + "'" + finalValue  + "'";
                         if (sPath === "fromDate") {
-                            filters.push(new Filter('Date', "GE", sValue));
+                            filters.push(new Filter('h_budat', "GE", finalValue));
                         } else if (sPath === "toDate") {
-                            filters.push(new Filter('Date', "LE", sValue));
+                            filters.push(new Filter('h_budat', "LE", finalValue));
                         }
                     } else if (sPath === "partner") {
                           filters.push(new Filter(sPath, "EQ", sValue));
                     }
                 }
-            });
+            }.bind(this));
             var aFilters = new Filter({
 				filters: filters,
 				and: true
 			});
-            var oBinding = this.byId("idCashCollectionTable").getBinding("items");
-			oBinding.filter(aFilters);
-            this.readBackendData(filters);
+            // var oBinding = this.byId("idCashCollectionTable").getBinding("items");
+			// oBinding.filter(aFilters);
+            let sFlag = this.getModel("worklistView").getProperty("/Flag");
+            let oParams = {
+                entity:sFlag === '001' ?  "/zcash_collection" :  "/zcash_collection_monthly" ,
+                filters: [aFilters] 
+            }
+            this.bindTableItems(oParams);
+            this.readBackendData(oParams);
            }
 
         },
@@ -417,10 +459,11 @@ sap.ui.define([
         //         this.readBackendData(resolve, reject);
         //     });
         // },
-        readBackendData: function (aFilters) {
+        readBackendData: function (oParams) {
+            // let filter = [aFilters];
             this.getView().setBusy(true);
-            this.getModel().read("/zcash_collection", {
-                filters:aFilters,
+            this.getModel().read(oParams.entity, {
+                filters:oParams.filters,
                 success: function (data) {
                     this.getView().setBusy(false);
                     this.getView().getModel("detailJSONModel").setProperty("/vizframeData", data.results);

@@ -18,6 +18,8 @@ server:
         backend:
           - path: /sap/opu/odata/
             url: http://Byjusdev:44330
+            client: '110'
+            destination: byjusfioridev
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:

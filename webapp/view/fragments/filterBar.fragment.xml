@@ -25,13 +25,13 @@
 				</fb:FilterGroupItem>
 				<fb:FilterGroupItem groupName="__$INTERNAL$" name="C" label="Daily / Monthly" labelTooltip="Tooltip Example" mandatory="true" partOfCurrentVariant="true" visibleInFilterBar="true">
 					<fb:control>
-						<ComboBox type="Text" change ="onSelectionChangeCombobox" app:key = "Source">
+						<Select type="Text" change ="onSelectionChangeCombobox" app:key = "Source" forceSelection = "true">
 							<items>
 								<core:Item key="001" text="Daily"/>
 								<core:Item key="002" text="Monthly"/>
 								<!-- <core:Item key="003" text="APJ"/> -->
 							</items>
-						</ComboBox>
+						</Select>
 					</fb:control>
 				</fb:FilterGroupItem>
                 <fb:FilterGroupItem groupName="__$INTERNAL$" name="D" label="Sources" labelTooltip="Tooltip Example" mandatory="true" partOfCurrentVariant="true" visibleInFilterBar="true">

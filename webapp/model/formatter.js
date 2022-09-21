@@ -54,6 +54,11 @@ sap.ui.define([], function () {
                 }
             }
             return sRetrun;
+        },
+        formatMonthYear : function (sValue) {
+            if (sValue.length > 0) {
+                return sValue.substr(0,2) + '-' + sValue.substr(2);
+            }
         }
 
     };
