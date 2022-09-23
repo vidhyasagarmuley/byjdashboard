@@ -12,6 +12,13 @@
     xmlns:layout="sap.ui.layout"
     xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
 <Table id = "idCashCollectionTable">
+	    <headerToolbar>
+        <OverflowToolbar>
+					<ToolbarSpacer/>
+                     <Button press="onPrint" icon="sap-icon://print"/>
+					<Button icon="sap-icon://download" type="Transparent" press="onExcelExport" />
+				</OverflowToolbar>
+    	</headerToolbar>
             <columns>
              <Column  hAlign = "Center">
                     <customData>

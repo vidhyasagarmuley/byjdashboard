@@ -59,7 +59,7 @@
 			<f:footer>
 				<OverflowToolbar>
 					<ToolbarSpacer/>
-					<m:Button icon="sap-icon://download" text = "Download" type="Transparent" press="onExcelExport" />
+					<!-- <m:Button icon="sap-icon://download" text = "Download" type="Transparent" press="onExcelExport" /> -->
 				</OverflowToolbar>
 			</f:footer>
 		</f:DynamicPage>

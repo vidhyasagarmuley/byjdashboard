@@ -73,7 +73,7 @@ sap.ui.define([
             sTable.bindItems({
 				path: oParams.entity,
                 filters: oParams.filters,
-                sorter: [new sap.ui.model.Sorter("partner", false, true)],
+                sorter: [new sap.ui.model.Sorter("partner", false, false)],
 				template: this.oTableItem.clone(),
 				templateShareable: false
 			});
@@ -518,7 +518,10 @@ sap.ui.define([
                     filename: "CashCollection"
                 };
                 oExportInCSV.startDownloadCSV(oArgs);
-        }
+        },
+        onPrint: function(){
+            window.print();
+        },
 
     });
 });
