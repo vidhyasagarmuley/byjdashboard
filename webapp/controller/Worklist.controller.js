@@ -11,8 +11,9 @@ sap.ui.define([
     "sap/ui/model/Sorter",
     "sap/m/MessageBox",
     "com/sap/byjus/byjusdashboard/controller/SmartTableBindingUpdate",
+    "com/sap/byjus/byjusdashboard/controller/ExportInCSV"
 ], function (BaseController, JSONModel, formatter, Filter, FilterOperator, InitPage, FlattenedDataset,
-    ChartFormatter, Format, Sorter, MessageBox, SmartTableBindingUpdate) {
+    ChartFormatter, Format, Sorter, MessageBox, SmartTableBindingUpdate, ExportInCSV) {
     "use strict";
 
     return BaseController.extend("com.sap.byjus.byjusdashboard.controller.Worklist", {
@@ -186,6 +187,7 @@ sap.ui.define([
             }
             this.bindTableItems(oParams);
             this.readBackendData(oParams);
+            this.aFilters = oParams.filters;
            }
 
         },
@@ -475,6 +477,47 @@ sap.ui.define([
                     console.log(oError)
                 }.bind(this)
             });
+        },
+        onExcelExport: function () {
+                // var oColumnDescriptionModel = this.getModel("appProperties").getProperty("/AGGREGATEB1DynamicColumnHeading");
+                var aColumns = [{
+                    name: "Partner",
+                    template: {
+                        content: {
+                            path: "partner",
+                            formatter: formatter.formatPartners
+                        }
+                    }
+                }, {
+                    name: "Date",
+                    template: {
+                        content: {
+                            path: "h_budat",
+                            formatter: formatter.formatDateExport
+                        }
+                    }
+                }, {
+                    name: "Amount",
+                    template: {
+                        content: {
+                            path: "amt"
+                            // formatter: formatter.formatNumberIntoCurrency
+                        }
+                    }
+                }];
+
+                var oExportInCSV = new ExportInCSV({
+                    view: this.getView()
+                    // crud: this.crud
+                });
+
+                var oArgs = {
+                    path: "/zcash_collection",
+                    filters: [this.aFilters],
+                    columns: aColumns,
+                    filename: "CashCollection"
+                };
+                oExportInCSV.startDownloadCSV(oArgs);
         }
 
     });

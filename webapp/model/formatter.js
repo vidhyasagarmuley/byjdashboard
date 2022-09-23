@@ -59,6 +59,11 @@ sap.ui.define([], function () {
             if (sValue.length > 0) {
                 return sValue.substr(0,2) + '-' + sValue.substr(2);
             }
+        },
+        formatDateExport: function (sValue) {
+            if (sValue) {
+                return sValue.toLocaleDateString();
+            }
         }
 
     };

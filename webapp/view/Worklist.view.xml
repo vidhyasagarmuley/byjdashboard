@@ -15,7 +15,7 @@
            xmlns:l="sap.ui.layout"
            xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
 
-		<f:DynamicPage id="dynamicPageId" headerExpanded="true">
+		<f:DynamicPage id="dynamicPageId" headerExpanded="true" showFooter = "true">
 			<!-- DynamicPage Title -->
 			<f:title>
 				<f:DynamicPageTitle>
@@ -59,7 +59,7 @@
 			<f:footer>
 				<OverflowToolbar>
 					<ToolbarSpacer/>
-					<m:Button icon="sap-icon://action" type="Transparent" press="onPress" />
+					<m:Button icon="sap-icon://download" text = "Download" type="Transparent" press="onExcelExport" />
 				</OverflowToolbar>
 			</f:footer>
 		</f:DynamicPage>

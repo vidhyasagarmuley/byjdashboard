@@ -10,7 +10,7 @@ sap.ui.define([
      *
      * See Also: Smart Table @ https://sapui5.hana.ondemand.com/sdk/#docs/guide/bed8274140d04fc0b9bcb2db42d8bac2.html
      */
-    return Object.extend("com.goap.cfms.works.reuselib.SmartTableBindingUpdate", {
+    return Object.extend("com.sap.byjus.byjusdashboard.controller.SmartTableBindingUpdate", {
 
         constructor: function (params) {
             if (!params) {
