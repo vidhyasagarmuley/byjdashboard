@@ -72,6 +72,7 @@ sap.ui.define([
             sTable.bindItems({
 				path: oParams.entity,
                 filters: oParams.filters,
+                sorter: [new sap.ui.model.Sorter("partner", false, true)],
 				template: this.oTableItem.clone(),
 				templateShareable: false
 			});
@@ -464,6 +465,7 @@ sap.ui.define([
             this.getView().setBusy(true);
             this.getModel().read(oParams.entity, {
                 filters:oParams.filters,
+                sorters: [new sap.ui.model.Sorter("h_budat", false, false)],
                 success: function (data) {
                     this.getView().setBusy(false);
                     this.getView().getModel("detailJSONModel").setProperty("/vizframeData", data.results);
