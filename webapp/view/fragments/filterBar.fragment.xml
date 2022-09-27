@@ -42,6 +42,7 @@
 								<core:Item key="R" text="Retail Direct to Bank"/>
                                 <core:Item key="G" text="PayU and Razorpay"/>
                                 <core:Item key="E" text="Exports"/>
+                                <core:Item key="N" text="NACH(EE Bytes)"/>
                                 <core:Item key="O" text="Others"/>
 								<!-- <core:Item key="003" text="APJ"/> -->
 							</items>

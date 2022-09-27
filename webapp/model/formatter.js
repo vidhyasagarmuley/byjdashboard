@@ -48,6 +48,9 @@ sap.ui.define([], function () {
                     case 'E' :
                         sRetrun = 'Exports'
                         break;
+                    case 'N' :
+                        sRetrun = 'NACH(EE Bytes)'
+                        break;
                     case 'O' :
                         sRetrun = 'Others'
                         break;   
