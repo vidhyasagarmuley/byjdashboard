@@ -64,8 +64,10 @@ sap.ui.define([], function () {
             }
         },
         formatDateExport: function (sValue) {
-            if (sValue) {
+            if (sValue.length > 6) {
                 return sValue.toLocaleDateString();
+            } else if (sValue.length === 6) {
+                return sValue.substr(0,2) + "/" + sValue.substr(2,6);
             }
         }
 

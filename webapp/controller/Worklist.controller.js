@@ -470,6 +470,13 @@ sap.ui.define([
                 sorters: [new sap.ui.model.Sorter("h_budat", false, false)],
                 success: function (data) {
                     this.getView().setBusy(false);
+                    if (data.results.length > 0) {
+                        if (data.results[0].h_budat.length === 6) {
+                            data.results.forEach(function(item){
+                                item.h_budat = new Date(item.h_budat.substr(2, 6) + "-" + item.h_budat.substr(0, 2));
+                            })
+                        }
+                    }
                     this.getView().getModel("detailJSONModel").setProperty("/vizframeData", data.results);
                 }.bind(this), 
                 error: function (oError) {
